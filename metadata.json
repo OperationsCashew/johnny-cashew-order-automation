@@ -1,0 +1,7 @@
+{
+  "name": "VerbouwScan",
+  "description": "VerbouwScan — AI Verbouwkostenraming voor jouw woning. Voer een adres of Funda-URL in en ontvang een gedetailleerde verbouwkostenraming per kamer, inclusief 3D-plattegrond en PDF-rapport.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}

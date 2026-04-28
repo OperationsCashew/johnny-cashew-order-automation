@@ -1,0 +1,18 @@
+node_modules/
+dist/
+.env
+.env.local
+.env.*.local
+.DS_Store
+.claude/
+
+# Exact Online sync
+tools/.env
+tools/.tokens.json
+tools/dataset.json
+tools/exact.db
+tools/sync.log
+__pycache__/
+
+# Local Netlify folder
+.netlify

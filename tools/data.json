@@ -1,0 +1,2676 @@
+{
+  "lastUpdated": "2026-03-31T06:15:02.641589+00:00",
+  "shopOrders": [
+    {
+      "nr": 334,
+      "id": "8dfc0bdc-5a38-4941-9cd6-733b204d6629",
+      "status": 20,
+      "statusText": "Vrijgegeven",
+      "itemCode": "1001015",
+      "description": "Lidl Way to Go Italian Style Grated 22 x 125 gr (DE)",
+      "quantity": 1824.0,
+      "plannedDate": "2026-03-06T00:00:00.000+01:00"
+    },
+    {
+      "nr": 393,
+      "id": "cf859ff5-4433-4d7d-b9fa-6457a6ff4a4e",
+      "status": 30,
+      "statusText": "In uitvoering",
+      "itemCode": "1002034",
+      "description": "Johnny Cashew cashewpasta 10l",
+      "quantity": 169.0,
+      "plannedDate": "2025-11-05T00:00:00.000+01:00"
+    },
+    {
+      "nr": 432,
+      "id": "3f4f70db-709b-440a-ae2d-069298032435",
+      "status": 20,
+      "statusText": "Vrijgegeven",
+      "itemCode": "1001014",
+      "description": "Lidl Way to Go Italian Style Grated 22 x 125 gr (NL/BE)",
+      "quantity": 1976.0,
+      "plannedDate": "2026-03-06T00:00:00.000+01:00"
+    },
+    {
+      "nr": 439,
+      "id": "0419873a-9b0e-4f13-87b1-84bf5e7b50cd",
+      "status": 30,
+      "statusText": "In uitvoering",
+      "itemCode": "2002016",
+      "description": "Chocolate Honey Seasalt 10kg doos bulk",
+      "quantity": 3402.33,
+      "plannedDate": "2026-03-12T00:00:00.000+01:00"
+    },
+    {
+      "nr": 440,
+      "id": "8ff98239-33c2-4d60-91c5-5743e2dece1e",
+      "status": 10,
+      "statusText": "Gepland",
+      "itemCode": "1002053",
+      "description": "Johnny Cashew choco honey seasalt 8 x 100 gr (Global)",
+      "quantity": 4320.0,
+      "plannedDate": "2026-03-26T00:00:00.000+01:00"
+    },
+    {
+      "nr": 441,
+      "id": "58d4138a-f33d-4db3-8051-c95e0c0ec101",
+      "status": 30,
+      "statusText": "In uitvoering",
+      "itemCode": "2002018",
+      "description": "Cinnamon Bun 10 kg doos bulk",
+      "quantity": 2360.76,
+      "plannedDate": "2026-03-12T00:00:00.000+01:00"
+    },
+    {
+      "nr": 442,
+      "id": "fc2ef21a-6563-4939-a198-e03dc2a37ad1",
+      "status": 10,
+      "statusText": "Gepland",
+      "itemCode": "1002062",
+      "description": "Johnny Cashew Cinnamon Bun 8 x 100gr (Global)",
+      "quantity": 2911.0,
+      "plannedDate": "2026-03-26T00:00:00.000+01:00"
+    },
+    {
+      "nr": 443,
+      "id": "2d80bd23-7df1-4b0e-a415-2f0eb54e21c1",
+      "status": 30,
+      "statusText": "In uitvoering",
+      "itemCode": "2002024",
+      "description": "Caramel Zeezout Cashew 10kg doos bulk",
+      "quantity": 2530.0,
+      "plannedDate": "2026-03-12T00:00:00.000+01:00"
+    },
+    {
+      "nr": 445,
+      "id": "71090f6b-a18a-479a-8707-ef3cc5410e50",
+      "status": 30,
+      "statusText": "In uitvoering",
+      "itemCode": "1002066",
+      "description": "Johnny Cashew Salted Caramel Almond Cashew Mix 8 x100gr (Glo",
+      "quantity": 6245.0,
+      "plannedDate": "2026-03-26T00:00:00.000+01:00"
+    },
+    {
+      "nr": 448,
+      "id": "42af6484-2ac7-4860-8ad0-dcf5e66676d7",
+      "status": 30,
+      "statusText": "In uitvoering",
+      "itemCode": "2002004",
+      "description": "Big bag honing zeezout 600kg",
+      "quantity": 1807.0,
+      "plannedDate": "2026-03-25T00:00:00.000+01:00"
+    },
+    {
+      "nr": 449,
+      "id": "208544ac-d711-4ebb-b3a6-13373a0fec98",
+      "status": 10,
+      "statusText": "Gepland",
+      "itemCode": "1002041",
+      "description": "Johnny Cashew honey roasted & sea salt 8 x 100 gr (NL)",
+      "quantity": 1944.0,
+      "plannedDate": "2026-04-09T00:00:00.000+02:00"
+    },
+    {
+      "nr": 450,
+      "id": "6e8298c8-91cb-42bd-a671-33acfb542b59",
+      "status": 10,
+      "statusText": "Gepland",
+      "itemCode": "1002043",
+      "description": "Johnny Cashew honey roasted & sea salt 12 x 25 gr (NL)",
+      "quantity": 960.0,
+      "plannedDate": "2026-04-09T00:00:00.000+02:00"
+    },
+    {
+      "nr": 451,
+      "id": "89f3592f-c329-4330-9fad-348dc353e8ea",
+      "status": 10,
+      "statusText": "Gepland",
+      "itemCode": "2002002",
+      "description": "Big bag gebrand gezouten 600kg",
+      "quantity": 5740.0,
+      "plannedDate": "2026-03-26T00:00:00.000+01:00"
+    },
+    {
+      "nr": 452,
+      "id": "525c723f-bec3-47af-9931-e89bdf09ff1e",
+      "status": 10,
+      "statusText": "Gepland",
+      "itemCode": "1001007",
+      "description": "Lidl Way To Go ongezouten en gezouten 28 x 175gr (SE/DK/FI)",
+      "quantity": 512.0,
+      "plannedDate": "2026-04-09T00:00:00.000+02:00"
+    },
+    {
+      "nr": 453,
+      "id": "f4080561-d10b-42f0-8263-34f08dc5a0f9",
+      "status": 10,
+      "statusText": "Gepland",
+      "itemCode": "1002038",
+      "description": "Johnny Cashew roasted & salted 8 x 100 gr (NL)",
+      "quantity": 576.0,
+      "plannedDate": "2026-04-09T00:00:00.000+02:00"
+    },
+    {
+      "nr": 454,
+      "id": "cfb4d48d-e56e-404c-95b9-d7a93f14cdbc",
+      "status": 10,
+      "statusText": "Gepland",
+      "itemCode": "1002057",
+      "description": "Johnny Cashew gebrand gezouten 40 x 100gr",
+      "quantity": 378.0,
+      "plannedDate": "2026-04-09T00:00:00.000+02:00"
+    },
+    {
+      "nr": 455,
+      "id": "66446197-27b1-4f06-86ff-3ec5a9b12773",
+      "status": 10,
+      "statusText": "Gepland",
+      "itemCode": "1002036",
+      "description": "Johnny Cashew salted 12 x 25 gr (NL)",
+      "quantity": 960.0,
+      "plannedDate": "2026-04-09T00:00:00.000+02:00"
+    },
+    {
+      "nr": 456,
+      "id": "a72d7b43-0361-4082-a2f1-29395417fde6",
+      "status": 10,
+      "statusText": "Gepland",
+      "itemCode": "1002052",
+      "description": "Johnny Cashew roasted salted 100 x 25gr (Intl)",
+      "quantity": 576.0,
+      "plannedDate": "2026-04-09T00:00:00.000+02:00"
+    },
+    {
+      "nr": 457,
+      "id": "2ce65752-3878-40f0-8dc8-94808f307c6e",
+      "status": 10,
+      "statusText": "Gepland",
+      "itemCode": "1002011",
+      "description": "Johnny Cashew gebrand gezouten 2 x 5kg",
+      "quantity": 10.0,
+      "plannedDate": "2026-03-26T00:00:00.000+01:00"
+    },
+    {
+      "nr": 458,
+      "id": "88db9450-7f64-4760-829b-08262ab5356f",
+      "status": 30,
+      "statusText": "In uitvoering",
+      "itemCode": "2002002",
+      "description": "Big bag gebrand gezouten 600kg",
+      "quantity": 4324.0,
+      "plannedDate": "2026-04-09T00:00:00.000+02:00"
+    },
+    {
+      "nr": 459,
+      "id": "731d22be-47b6-4d31-afd3-2c4dfd673921",
+      "status": 10,
+      "statusText": "Gepland",
+      "itemCode": "1001010",
+      "description": "Lidl Way To Go gebrand gezouten 28 x 200gr (NL)",
+      "quantity": 768.0,
+      "plannedDate": "2026-04-23T00:00:00.000+02:00"
+    },
+    {
+      "nr": 460,
+      "id": "b315566a-346e-44ec-ae64-e4a2c3a29849",
+      "status": 10,
+      "statusText": "Gepland",
+      "itemCode": "1001011",
+      "description": "Lidl Way To Go knof roz en chili 28 x 175gr (NL)",
+      "quantity": 2176.0,
+      "plannedDate": "2026-05-21T00:00:00.000+02:00"
+    },
+    {
+      "nr": 461,
+      "id": "a790af7b-ede8-4e0e-9461-e9ad37efe13a",
+      "status": 10,
+      "statusText": "Gepland",
+      "itemCode": "2002006",
+      "description": "Big bag knoflook rozemarijn 600kg",
+      "quantity": 5362.0,
+      "plannedDate": "2026-05-12T00:00:00.000+02:00"
+    },
+    {
+      "nr": 462,
+      "id": "fbc2734b-0c68-454a-a87a-9aa3773585aa",
+      "status": 10,
+      "statusText": "Gepland",
+      "itemCode": "2002012",
+      "description": "Big Bag hot chili (nieuwe receptuur)",
+      "quantity": 5172.0,
+      "plannedDate": "2026-05-12T00:00:00.000+02:00"
+    },
+    {
+      "nr": 464,
+      "id": "e7f4fd10-5e4e-4754-8e3f-1fc48f3ac109",
+      "status": 10,
+      "statusText": "Gepland",
+      "itemCode": "1001010",
+      "description": "Lidl Way To Go gebrand gezouten 28 x 200gr (NL)",
+      "quantity": 896.0,
+      "plannedDate": "2026-04-30T00:00:00.000+02:00"
+    },
+    {
+      "nr": 465,
+      "id": "66ae7157-a1d7-4d25-9702-f06c6a505be3",
+      "status": 10,
+      "statusText": "Gepland",
+      "itemCode": "2002002",
+      "description": "Big bag gebrand gezouten 600kg",
+      "quantity": 5043.0,
+      "plannedDate": "2026-04-16T00:00:00.000+02:00"
+    },
+    {
+      "nr": 466,
+      "id": "fef4d49c-51dd-4574-b6ac-21f16dc4be05",
+      "status": 10,
+      "statusText": "Gepland",
+      "itemCode": "1001012",
+      "description": "Lidl Way To Go Gebrand Ongezouten 28 x 200gr (NL)",
+      "quantity": 896.0,
+      "plannedDate": "2026-04-30T00:00:00.000+02:00"
+    },
+    {
+      "nr": 467,
+      "id": "dc8b3369-79c9-4cd8-83e8-b256cd5365f9",
+      "status": 10,
+      "statusText": "Gepland",
+      "itemCode": "2002003",
+      "description": "Big bag gebrand ongezouten 600kg",
+      "quantity": 5043.0,
+      "plannedDate": "2026-04-16T00:00:00.000+02:00"
+    },
+    {
+      "nr": 468,
+      "id": "f36372d9-bef1-4899-b298-6fd964b7a1bb",
+      "status": 10,
+      "statusText": "Gepland",
+      "itemCode": "1001014",
+      "description": "Lidl Way to Go Italian Style Grated 22 x 125 gr (NL/BE)",
+      "quantity": 1672.0,
+      "plannedDate": "2026-05-28T00:00:00.000+02:00"
+    }
+  ],
+  "materialPlans": {
+    "71090f6b-a18a-479a-8707-ef3cc5410e50": [
+      {
+        "itemCode": "2002025",
+        "description": "Caramel Zeezout Almond 10kg doos bulk",
+        "plannedQuantityFactor": 0.05,
+        "plannedAmountFC": 21058.14
+      },
+      {
+        "itemCode": "2002024",
+        "description": "Caramel Zeezout Cashew 10kg doos bulk",
+        "plannedQuantityFactor": 0.05,
+        "plannedAmountFC": 23147.2851624282
+      },
+      {
+        "itemCode": "2003114",
+        "description": "Johnny Cashew folie caramel Almond Cashew mix 100gr",
+        "plannedQuantityFactor": 0.14,
+        "plannedAmountFC": 2210.2304
+      },
+      {
+        "itemCode": "2003116",
+        "description": "Johnny Cashew doos 8 x 100gr (NL). + perforatie",
+        "plannedQuantityFactor": 1.0,
+        "plannedAmountFC": 1867.255
+      }
+    ],
+    "0419873a-9b0e-4f13-87b1-84bf5e7b50cd": [
+      {
+        "itemCode": "2002004",
+        "description": "Big bag honing zeezout 600kg",
+        "plannedQuantityFactor": 0.503,
+        "plannedAmountFC": 12776.3054030977
+      }
+    ],
+    "8dfc0bdc-5a38-4941-9cd6-733b204d6629": [
+      {
+        "itemCode": "2003084",
+        "description": "Lidl Way to Go Parmesan doos onderkant",
+        "plannedQuantityFactor": 1.0,
+        "plannedAmountFC": 738.72
+      },
+      {
+        "itemCode": "2003086",
+        "description": "Lidl Way to Go Parmesan doos deksel",
+        "plannedQuantityFactor": 1.0,
+        "plannedAmountFC": 399.46
+      },
+      {
+        "itemCode": "2003103",
+        "description": "Lidl Way to Go Parmesan folie DE",
+        "plannedQuantityFactor": 1.0,
+        "plannedAmountFC": 0.0
+      },
+      {
+        "itemCode": "2001010",
+        "description": "Cashew red Raaskal",
+        "plannedQuantityFactor": 1.67,
+        "plannedAmountFC": 21395.06
+      }
+    ],
+    "3f4f70db-709b-440a-ae2d-069298032435": [
+      {
+        "itemCode": "2003086",
+        "description": "Lidl Way to Go Parmesan doos deksel",
+        "plannedQuantityFactor": 1.0,
+        "plannedAmountFC": 562.740391394865
+      },
+      {
+        "itemCode": "2003084",
+        "description": "Lidl Way to Go Parmesan doos onderkant",
+        "plannedQuantityFactor": 1.0,
+        "plannedAmountFC": 969.491190701446
+      },
+      {
+        "itemCode": "2003102",
+        "description": "Lidl Way to Go Parmesan folie NL/BE",
+        "plannedQuantityFactor": 1.0,
+        "plannedAmountFC": 5303.584
+      },
+      {
+        "itemCode": "2001010",
+        "description": "Cashew red Raaskal",
+        "plannedQuantityFactor": 0.076,
+        "plannedAmountFC": 23177.9859414157
+      }
+    ],
+    "8ff98239-33c2-4d60-91c5-5743e2dece1e": [
+      {
+        "itemCode": "2003106",
+        "description": "Johnny Cashew folie Chocolate Honey Sea Salt 100gr (Global)",
+        "plannedQuantityFactor": 0.14,
+        "plannedAmountFC": 1531.8926509153
+      },
+      {
+        "itemCode": "2002016",
+        "description": "Chocolate Honey Seasalt 10kg doos bulk",
+        "plannedQuantityFactor": 0.101,
+        "plannedAmountFC": 31213.4547543563
+      },
+      {
+        "itemCode": "2003116",
+        "description": "Johnny Cashew doos 8 x 100gr (NL). + perforatie",
+        "plannedQuantityFactor": 1.0,
+        "plannedAmountFC": 0.0
+      }
+    ],
+    "42af6484-2ac7-4860-8ad0-dcf5e66676d7": [
+      {
+        "itemCode": "2001006",
+        "description": "Cashew wholes green",
+        "plannedQuantityFactor": 0.734,
+        "plannedAmountFC": 8842.12592641213
+      }
+    ],
+    "cf859ff5-4433-4d7d-b9fa-6457a6ff4a4e": [
+      {
+        "itemCode": "2001014",
+        "description": "Cashew wholes green (BW) uitgesorteerd",
+        "plannedQuantityFactor": 8.57,
+        "plannedAmountFC": 9342.82
+      },
+      {
+        "itemCode": "2001008",
+        "description": "Cashew broken small red 2 (BB1 - BB2 - BW)",
+        "plannedQuantityFactor": 2.28,
+        "plannedAmountFC": 2533.37
+      }
+    ],
+    "2d80bd23-7df1-4b0e-a415-2f0eb54e21c1": [
+      {
+        "itemCode": "2002004",
+        "description": "Big bag honing zeezout 600kg",
+        "plannedQuantityFactor": 0.503,
+        "plannedAmountFC": 9500.5635787708
+      }
+    ],
+    "fc2ef21a-6563-4939-a198-e03dc2a37ad1": [
+      {
+        "itemCode": "2003107",
+        "description": "Johnny Cashew folie Cinnamon Bun 100gr",
+        "plannedQuantityFactor": 0.14,
+        "plannedAmountFC": 1159.70972003886
+      },
+      {
+        "itemCode": "2002018",
+        "description": "Cinnamon Bun 10 kg doos bulk",
+        "plannedQuantityFactor": 0.1,
+        "plannedAmountFC": 21645.4071826663
+      },
+      {
+        "itemCode": "2003116",
+        "description": "Johnny Cashew doos 8 x 100gr (NL). + perforatie",
+        "plannedQuantityFactor": 1.0,
+        "plannedAmountFC": 0.0
+      }
+    ],
+    "58d4138a-f33d-4db3-8051-c95e0c0ec101": [
+      {
+        "itemCode": "2002004",
+        "description": "Big bag honing zeezout 600kg",
+        "plannedQuantityFactor": 0.49,
+        "plannedAmountFC": 8635.92039238235
+      }
+    ],
+    "a72d7b43-0361-4082-a2f1-29395417fde6": [
+      {
+        "itemCode": "2003074",
+        "description": "Johnny Cashew folie roasted & salted 25gr (Intl)",
+        "plannedQuantityFactor": 0.16,
+        "plannedAmountFC": 1593.49099759788
+      },
+      {
+        "itemCode": "2002002",
+        "description": "Big bag gebrand gezouten 600kg",
+        "plannedQuantityFactor": 0.025,
+        "plannedAmountFC": 10461.0913467695
+      },
+      {
+        "itemCode": "2003002",
+        "description": "Johnny Cashew amerikaanse doos (390 x 290 x 150)",
+        "plannedQuantityFactor": 1.0,
+        "plannedAmountFC": 227.52
+      }
+    ],
+    "6e8298c8-91cb-42bd-a671-33acfb542b59": [
+      {
+        "itemCode": "2003068",
+        "description": "Johnny Cashew folie honing zeezout 25gr",
+        "plannedQuantityFactor": 0.16,
+        "plannedAmountFC": 584.2944
+      },
+      {
+        "itemCode": "2003082",
+        "description": "Johnny Cashew doos honing zeezout 25gr",
+        "plannedQuantityFactor": 1.0,
+        "plannedAmountFC": 747.84
+      },
+      {
+        "itemCode": "2002004",
+        "description": "Big bag honing zeezout 600kg",
+        "plannedQuantityFactor": 0.025,
+        "plannedAmountFC": 2102.37724677386
+      }
+    ],
+    "66446197-27b1-4f06-86ff-3ec5a9b12773": [
+      {
+        "itemCode": "2002002",
+        "description": "Big bag gebrand gezouten 600kg",
+        "plannedQuantityFactor": 0.025,
+        "plannedAmountFC": 2092.2182693539
+      },
+      {
+        "itemCode": "2003008",
+        "description": "Johnny Cashew doos gezouten 12 x 25gr",
+        "plannedQuantityFactor": 1.0,
+        "plannedAmountFC": 920.64
+      },
+      {
+        "itemCode": "2003011",
+        "description": "Johnny Cashew folie gebrand gezouten 25gr",
+        "plannedQuantityFactor": 0.16,
+        "plannedAmountFC": 418.4064
+      }
+    ],
+    "525c723f-bec3-47af-9931-e89bdf09ff1e": [
+      {
+        "itemCode": "2002002",
+        "description": "Big bag gebrand gezouten 600kg",
+        "plannedQuantityFactor": 0.176,
+        "plannedAmountFC": 13747.2688418347
+      },
+      {
+        "itemCode": "2003037",
+        "description": "Lidl Way To Go folie gebrand gezouten 175gr (SE/DK/FI)",
+        "plannedQuantityFactor": 0.14,
+        "plannedAmountFC": 530.535466353412
+      },
+      {
+        "itemCode": "2003033",
+        "description": "Lidl Way To Go doos opgezet",
+        "plannedQuantityFactor": 1.0,
+        "plannedAmountFC": 426.296303550645
+      },
+      {
+        "itemCode": "2003042",
+        "description": "Lidl Way To Go folie ongebrand ongezouten 175gr (SE/FI/DK)",
+        "plannedQuantityFactor": 0.14,
+        "plannedAmountFC": 145.742405956868
+      },
+      {
+        "itemCode": "2002007",
+        "description": "Big bag ongebrand ongezouten 600kg",
+        "plannedQuantityFactor": 0.176,
+        "plannedAmountFC": 5130.10653097092
+      }
+    ],
+    "89f3592f-c329-4330-9fad-348dc353e8ea": [
+      {
+        "itemCode": "2001006",
+        "description": "Cashew wholes green",
+        "plannedQuantityFactor": 0.78,
+        "plannedAmountFC": 29847.569923905
+      },
+      {
+        "itemCode": "2001005",
+        "description": "Cashew white large pieces blue",
+        "plannedQuantityFactor": 0.1,
+        "plannedAmountFC": 3948.97128199777
+      },
+      {
+        "itemCode": "2001003",
+        "description": "Cashew broken large yellow",
+        "plannedQuantityFactor": 0.1,
+        "plannedAmountFC": 3943.18492921896
+      }
+    ],
+    "208544ac-d711-4ebb-b3a6-13373a0fec98": [
+      {
+        "itemCode": "2003105",
+        "description": "Johnny Cashew folie Honey & Sea Salt 100gr (Global)",
+        "plannedQuantityFactor": 0.14,
+        "plannedAmountFC": 672.511279104
+      },
+      {
+        "itemCode": "2003083",
+        "description": "Johnny Cashew doos 8 x 100gr (NL)",
+        "plannedQuantityFactor": 1.0,
+        "plannedAmountFC": 474.405843529649
+      },
+      {
+        "itemCode": "2002004",
+        "description": "Big bag honing zeezout 600kg",
+        "plannedQuantityFactor": 0.101,
+        "plannedAmountFC": 11466.3655039046
+      }
+    ],
+    "88db9450-7f64-4760-829b-08262ab5356f": [
+      {
+        "itemCode": "2001003",
+        "description": "Cashew broken large yellow",
+        "plannedQuantityFactor": 0.1,
+        "plannedAmountFC": 2970.44105120955
+      },
+      {
+        "itemCode": "2001006",
+        "description": "Cashew wholes green",
+        "plannedQuantityFactor": 0.78,
+        "plannedAmountFC": 23034.5702403665
+      },
+      {
+        "itemCode": "2001005",
+        "description": "Cashew white large pieces blue",
+        "plannedQuantityFactor": 0.1,
+        "plannedAmountFC": 2974.79996922619
+      }
+    ],
+    "cfb4d48d-e56e-404c-95b9-d7a93f14cdbc": [
+      {
+        "itemCode": "2002002",
+        "description": "Big bag gebrand gezouten 600kg",
+        "plannedQuantityFactor": 0.101,
+        "plannedAmountFC": 11093.9873732491
+      },
+      {
+        "itemCode": "2003063",
+        "description": "Johnny Cashew folie gebrand gezouten 100gr",
+        "plannedQuantityFactor": 0.14,
+        "plannedAmountFC": 804.93548272414
+      },
+      {
+        "itemCode": "2003002",
+        "description": "Johnny Cashew amerikaanse doos (390 x 290 x 150)",
+        "plannedQuantityFactor": 1.0,
+        "plannedAmountFC": 149.31
+      }
+    ],
+    "f4080561-d10b-42f0-8263-34f08dc5a0f9": [
+      {
+        "itemCode": "2002002",
+        "description": "Big bag gebrand gezouten 600kg",
+        "plannedQuantityFactor": 0.101,
+        "plannedAmountFC": 3381.02472327591
+      },
+      {
+        "itemCode": "2003083",
+        "description": "Johnny Cashew doos 8 x 100gr (NL)",
+        "plannedQuantityFactor": 1.0,
+        "plannedAmountFC": 140.564694379155
+      },
+      {
+        "itemCode": "2003063",
+        "description": "Johnny Cashew folie gebrand gezouten 100gr",
+        "plannedQuantityFactor": 0.14,
+        "plannedAmountFC": 245.313670925452
+      }
+    ],
+    "2ce65752-3878-40f0-8dc8-94808f307c6e": [
+      {
+        "itemCode": "2001006",
+        "description": "Cashew wholes green",
+        "plannedQuantityFactor": 8.18,
+        "plannedAmountFC": 558.667142739978
+      },
+      {
+        "itemCode": "2001005",
+        "description": "Cashew white large pieces blue",
+        "plannedQuantityFactor": 0.91,
+        "plannedAmountFC": 62.6056422755744
+      },
+      {
+        "itemCode": "2001003",
+        "description": "Cashew broken large yellow",
+        "plannedQuantityFactor": 0.91,
+        "plannedAmountFC": 62.5139074144469
+      }
+    ],
+    "66ae7157-a1d7-4d25-9702-f06c6a505be3": [
+      {
+        "itemCode": "2001006",
+        "description": "Cashew wholes green",
+        "plannedQuantityFactor": 0.78,
+        "plannedAmountFC": 26864.7867072544
+      },
+      {
+        "itemCode": "2001005",
+        "description": "Cashew white large pieces blue",
+        "plannedQuantityFactor": 0.1,
+        "plannedAmountFC": 3469.49275439456
+      },
+      {
+        "itemCode": "2001003",
+        "description": "Cashew broken large yellow",
+        "plannedQuantityFactor": 0.1,
+        "plannedAmountFC": 3465.1145283302
+      }
+    ],
+    "e7f4fd10-5e4e-4754-8e3f-1fc48f3ac109": [
+      {
+        "itemCode": "2003033",
+        "description": "Lidl Way To Go doos opgezet",
+        "plannedQuantityFactor": 1.0,
+        "plannedAmountFC": 746.018531213629
+      },
+      {
+        "itemCode": "2002002",
+        "description": "Big bag gebrand gezouten 600kg",
+        "plannedQuantityFactor": 0.202,
+        "plannedAmountFC": 36815.6025423376
+      },
+      {
+        "itemCode": "2003093",
+        "description": "Lidl Way To Go folie gebrand gezouten 200gr (NL)",
+        "plannedQuantityFactor": 0.208,
+        "plannedAmountFC": 923.639808
+      }
+    ],
+    "f36372d9-bef1-4899-b298-6fd964b7a1bb": [
+      {
+        "itemCode": "2003086",
+        "description": "Lidl Way to Go Parmesan doos deksel",
+        "plannedQuantityFactor": 1.0,
+        "plannedAmountFC": 476.164946564886
+      },
+      {
+        "itemCode": "2001010",
+        "description": "Cashew red Raaskal",
+        "plannedQuantityFactor": 0.076,
+        "plannedAmountFC": 20180.7416417148
+      },
+      {
+        "itemCode": "2003102",
+        "description": "Lidl Way to Go Parmesan folie NL/BE",
+        "plannedQuantityFactor": 1.0,
+        "plannedAmountFC": 4651.81647977685
+      },
+      {
+        "itemCode": "2003084",
+        "description": "Lidl Way to Go Parmesan doos onderkant",
+        "plannedQuantityFactor": 1.0,
+        "plannedAmountFC": 820.338699824301
+      }
+    ],
+    "731d22be-47b6-4d31-afd3-2c4dfd673921": [
+      {
+        "itemCode": "2003093",
+        "description": "Lidl Way To Go folie gebrand gezouten 200gr (NL)",
+        "plannedQuantityFactor": 0.208,
+        "plannedAmountFC": 791.691264
+      },
+      {
+        "itemCode": "2002002",
+        "description": "Big bag gebrand gezouten 600kg",
+        "plannedQuantityFactor": 0.202,
+        "plannedAmountFC": 31556.2307505751
+      },
+      {
+        "itemCode": "2003033",
+        "description": "Lidl Way To Go doos opgezet",
+        "plannedQuantityFactor": 1.0,
+        "plannedAmountFC": 639.444455325968
+      }
+    ],
+    "dc8b3369-79c9-4cd8-83e8-b256cd5365f9": [
+      {
+        "itemCode": "2001005",
+        "description": "Cashew white large pieces blue",
+        "plannedQuantityFactor": 0.099,
+        "plannedAmountFC": 3434.79782685061
+      },
+      {
+        "itemCode": "2001003",
+        "description": "Cashew broken large yellow",
+        "plannedQuantityFactor": 0.098,
+        "plannedAmountFC": 3395.8122377636
+      },
+      {
+        "itemCode": "2001006",
+        "description": "Cashew wholes green",
+        "plannedQuantityFactor": 0.788,
+        "plannedAmountFC": 27140.322981175
+      }
+    ],
+    "b315566a-346e-44ec-ae64-e4a2c3a29849": [
+      {
+        "itemCode": "2002006",
+        "description": "Big bag knoflook rozemarijn 600kg",
+        "plannedQuantityFactor": 0.176,
+        "plannedAmountFC": 42264.6785253982
+      },
+      {
+        "itemCode": "2003033",
+        "description": "Lidl Way To Go doos opgezet",
+        "plannedQuantityFactor": 1.0,
+        "plannedAmountFC": 1811.75929009024
+      },
+      {
+        "itemCode": "2003038",
+        "description": "Lidl Way To Go folie knoflook rozemarijn 175gr (NL)",
+        "plannedQuantityFactor": 0.14,
+        "plannedAmountFC": 1666.60418403805
+      },
+      {
+        "itemCode": "2003092",
+        "description": "Lidl Way To Go folie chili 175gr (NL)",
+        "plannedQuantityFactor": 0.14,
+        "plannedAmountFC": 1118.96375844428
+      },
+      {
+        "itemCode": "2002012",
+        "description": "Big Bag hot chili (nieuwe receptuur)",
+        "plannedQuantityFactor": 0.176,
+        "plannedAmountFC": 42761.4532657996
+      }
+    ],
+    "fbc2734b-0c68-454a-a87a-9aa3773585aa": [
+      {
+        "itemCode": "2001006",
+        "description": "Cashew wholes green",
+        "plannedQuantityFactor": 0.791,
+        "plannedAmountFC": 27940.5419515975
+      },
+      {
+        "itemCode": "2001005",
+        "description": "Cashew white large pieces blue",
+        "plannedQuantityFactor": 0.093,
+        "plannedAmountFC": 3309.16545090773
+      },
+      {
+        "itemCode": "2001003",
+        "description": "Cashew broken large yellow",
+        "plannedQuantityFactor": 0.047,
+        "plannedAmountFC": 1670.2635336201
+      }
+    ],
+    "fef4d49c-51dd-4574-b6ac-21f16dc4be05": [
+      {
+        "itemCode": "2003033",
+        "description": "Lidl Way To Go doos opgezet",
+        "plannedQuantityFactor": 1.0,
+        "plannedAmountFC": 746.018531213629
+      },
+      {
+        "itemCode": "2002003",
+        "description": "Big bag gebrand ongezouten 600kg",
+        "plannedQuantityFactor": 0.202,
+        "plannedAmountFC": 36958.1357672326
+      },
+      {
+        "itemCode": "2003094",
+        "description": "Lidl Way To Go folie Gebrand Ongezouten 200gr (NL)",
+        "plannedQuantityFactor": 0.208,
+        "plannedAmountFC": 923.639808
+      }
+    ],
+    "a790af7b-ede8-4e0e-9461-e9ad37efe13a": [
+      {
+        "itemCode": "2001003",
+        "description": "Cashew broken large yellow",
+        "plannedQuantityFactor": 0.049,
+        "plannedAmountFC": 1805.3088656443
+      },
+      {
+        "itemCode": "2001005",
+        "description": "Cashew white large pieces blue",
+        "plannedQuantityFactor": 0.149,
+        "plannedAmountFC": 5496.5488840184
+      },
+      {
+        "itemCode": "2001006",
+        "description": "Cashew wholes green",
+        "plannedQuantityFactor": 0.78,
+        "plannedAmountFC": 28564.1456125914
+      }
+    ]
+  },
+  "shopOrderSubcontractor": {
+    "334": "503",
+    "445": "172",
+    "432": "503",
+    "393": "371",
+    "439": "518",
+    "443": "518",
+    "441": "518",
+    "448": "96",
+    "458": "96"
+  },
+  "purchaseOrders": [
+    {
+      "nr": 530,
+      "supplierCode": "503",
+      "supplierName": "Raaskal Foodcreators B.V.",
+      "orderDate": "2025-10-23T00:00:00.000+02:00",
+      "status": 10,
+      "statusText": "Open",
+      "receiptDate": "2025-07-30T00:00:00.000+02:00",
+      "receiptStatus": 10,
+      "receiptStatusText": "Open"
+    },
+    {
+      "nr": 613,
+      "supplierCode": "371",
+      "supplierName": "Euronuts Notenveredelingsindustrie B.V.",
+      "orderDate": "2025-11-06T00:00:00.000+01:00",
+      "status": 10,
+      "statusText": "Open",
+      "receiptDate": "2025-11-06T00:00:00.000+01:00",
+      "receiptStatus": 10,
+      "receiptStatusText": "Open"
+    },
+    {
+      "nr": 670,
+      "supplierCode": "276",
+      "supplierName": "Lorca Holding B.V.",
+      "orderDate": "2025-12-09T00:00:00.000+01:00",
+      "status": 10,
+      "statusText": "Open",
+      "receiptDate": "2025-11-13T00:00:00.000+01:00",
+      "receiptStatus": 10,
+      "receiptStatusText": "Open"
+    },
+    {
+      "nr": 671,
+      "supplierCode": "276",
+      "supplierName": "Lorca Holding B.V.",
+      "orderDate": "2025-12-09T00:00:00.000+01:00",
+      "status": 10,
+      "statusText": "Open",
+      "receiptDate": "2025-11-13T00:00:00.000+01:00",
+      "receiptStatus": 10,
+      "receiptStatusText": "Open"
+    },
+    {
+      "nr": 672,
+      "supplierCode": "276",
+      "supplierName": "Lorca Holding B.V.",
+      "orderDate": "2025-12-09T00:00:00.000+01:00",
+      "status": 10,
+      "statusText": "Open",
+      "receiptDate": "2025-11-13T00:00:00.000+01:00",
+      "receiptStatus": 10,
+      "receiptStatusText": "Open"
+    },
+    {
+      "nr": 673,
+      "supplierCode": "276",
+      "supplierName": "Lorca Holding B.V.",
+      "orderDate": "2025-12-09T00:00:00.000+01:00",
+      "status": 10,
+      "statusText": "Open",
+      "receiptDate": "2025-11-13T00:00:00.000+01:00",
+      "receiptStatus": 10,
+      "receiptStatusText": "Open"
+    },
+    {
+      "nr": 674,
+      "supplierCode": "276",
+      "supplierName": "Lorca Holding B.V.",
+      "orderDate": "2025-12-09T00:00:00.000+01:00",
+      "status": 10,
+      "statusText": "Open",
+      "receiptDate": "2025-11-13T00:00:00.000+01:00",
+      "receiptStatus": 10,
+      "receiptStatusText": "Open"
+    },
+    {
+      "nr": 687,
+      "supplierCode": "307",
+      "supplierName": "BIOTAN Austria GmbH",
+      "orderDate": "2025-12-23T00:00:00.000+01:00",
+      "status": 20,
+      "statusText": "Goedgekeurd",
+      "receiptDate": "2025-12-23T00:00:00.000+01:00",
+      "receiptStatus": 10,
+      "receiptStatusText": "Open"
+    },
+    {
+      "nr": 697,
+      "supplierCode": "276",
+      "supplierName": "Lorca Holding B.V.",
+      "orderDate": "2026-01-16T00:00:00.000+01:00",
+      "status": 10,
+      "statusText": "Open",
+      "receiptDate": "2026-01-14T00:00:00.000+01:00",
+      "receiptStatus": 10,
+      "receiptStatusText": "Open"
+    },
+    {
+      "nr": 698,
+      "supplierCode": "276",
+      "supplierName": "Lorca Holding B.V.",
+      "orderDate": "2026-01-16T00:00:00.000+01:00",
+      "status": 10,
+      "statusText": "Open",
+      "receiptDate": "2026-01-14T00:00:00.000+01:00",
+      "receiptStatus": 10,
+      "receiptStatusText": "Open"
+    },
+    {
+      "nr": 699,
+      "supplierCode": "276",
+      "supplierName": "Lorca Holding B.V.",
+      "orderDate": "2026-01-16T00:00:00.000+01:00",
+      "status": 10,
+      "statusText": "Open",
+      "receiptDate": "2026-01-14T00:00:00.000+01:00",
+      "receiptStatus": 10,
+      "receiptStatusText": "Open"
+    },
+    {
+      "nr": 700,
+      "supplierCode": "276",
+      "supplierName": "Lorca Holding B.V.",
+      "orderDate": "2026-01-16T00:00:00.000+01:00",
+      "status": 10,
+      "statusText": "Open",
+      "receiptDate": "2026-01-14T00:00:00.000+01:00",
+      "receiptStatus": 10,
+      "receiptStatusText": "Open"
+    },
+    {
+      "nr": 703,
+      "supplierCode": "503",
+      "supplierName": "Raaskal Foodcreators B.V.",
+      "orderDate": "2026-01-22T00:00:00.000+01:00",
+      "status": 20,
+      "statusText": "Goedgekeurd",
+      "receiptDate": "2026-01-22T00:00:00.000+01:00",
+      "receiptStatus": 10,
+      "receiptStatusText": "Open"
+    },
+    {
+      "nr": 704,
+      "supplierCode": "503",
+      "supplierName": "Raaskal Foodcreators B.V.",
+      "orderDate": "2026-01-22T00:00:00.000+01:00",
+      "status": 20,
+      "statusText": "Goedgekeurd",
+      "receiptDate": "2026-01-22T00:00:00.000+01:00",
+      "receiptStatus": 10,
+      "receiptStatusText": "Open"
+    },
+    {
+      "nr": 730,
+      "supplierCode": "740",
+      "supplierName": "Nuts2 B.V.",
+      "orderDate": "2026-03-09T00:00:00.000+01:00",
+      "status": 20,
+      "statusText": "Goedgekeurd",
+      "receiptDate": "2026-03-09T00:00:00.000+01:00",
+      "receiptStatus": 10,
+      "receiptStatusText": "Open"
+    },
+    {
+      "nr": 732,
+      "supplierCode": "214",
+      "supplierName": "Smurfit Kappa Zedek",
+      "orderDate": "2026-03-10T00:00:00.000+01:00",
+      "status": 10,
+      "statusText": "Open",
+      "receiptDate": "2026-03-25T00:00:00.000+01:00",
+      "receiptStatus": 10,
+      "receiptStatusText": "Open"
+    },
+    {
+      "nr": 733,
+      "supplierCode": "129",
+      "supplierName": "Estiko Plastar As",
+      "orderDate": "2026-03-11T00:00:00.000+01:00",
+      "status": 10,
+      "statusText": "Open",
+      "receiptDate": "2026-05-14T00:00:00.000+02:00",
+      "receiptStatus": 10,
+      "receiptStatusText": "Open"
+    },
+    {
+      "nr": 735,
+      "supplierCode": "276",
+      "supplierName": "Lorca Holding B.V.",
+      "orderDate": "2026-03-17T00:00:00.000+01:00",
+      "status": 10,
+      "statusText": "Open",
+      "receiptDate": "2026-03-17T00:00:00.000+01:00",
+      "receiptStatus": 10,
+      "receiptStatusText": "Open"
+    },
+    {
+      "nr": 736,
+      "supplierCode": "276",
+      "supplierName": "Lorca Holding B.V.",
+      "orderDate": "2026-03-17T00:00:00.000+01:00",
+      "status": 10,
+      "statusText": "Open",
+      "receiptDate": "2026-03-17T00:00:00.000+01:00",
+      "receiptStatus": 10,
+      "receiptStatusText": "Open"
+    },
+    {
+      "nr": 737,
+      "supplierCode": "276",
+      "supplierName": "Lorca Holding B.V.",
+      "orderDate": "2026-03-17T00:00:00.000+01:00",
+      "status": 10,
+      "statusText": "Open",
+      "receiptDate": "2026-03-17T00:00:00.000+01:00",
+      "receiptStatus": 10,
+      "receiptStatusText": "Open"
+    },
+    {
+      "nr": 738,
+      "supplierCode": "276",
+      "supplierName": "Lorca Holding B.V.",
+      "orderDate": "2026-03-17T00:00:00.000+01:00",
+      "status": 10,
+      "statusText": "Open",
+      "receiptDate": "2026-03-17T00:00:00.000+01:00",
+      "receiptStatus": 10,
+      "receiptStatusText": "Open"
+    },
+    {
+      "nr": 739,
+      "supplierCode": "276",
+      "supplierName": "Lorca Holding B.V.",
+      "orderDate": "2026-03-17T00:00:00.000+01:00",
+      "status": 10,
+      "statusText": "Open",
+      "receiptDate": "2026-03-17T00:00:00.000+01:00",
+      "receiptStatus": 10,
+      "receiptStatusText": "Open"
+    },
+    {
+      "nr": 740,
+      "supplierCode": "276",
+      "supplierName": "Lorca Holding B.V.",
+      "orderDate": "2026-03-17T00:00:00.000+01:00",
+      "status": 10,
+      "statusText": "Open",
+      "receiptDate": "2026-03-17T00:00:00.000+01:00",
+      "receiptStatus": 10,
+      "receiptStatusText": "Open"
+    },
+    {
+      "nr": 741,
+      "supplierCode": "276",
+      "supplierName": "Lorca Holding B.V.",
+      "orderDate": "2026-03-17T00:00:00.000+01:00",
+      "status": 10,
+      "statusText": "Open",
+      "receiptDate": "2026-03-17T00:00:00.000+01:00",
+      "receiptStatus": 10,
+      "receiptStatusText": "Open"
+    },
+    {
+      "nr": 742,
+      "supplierCode": "276",
+      "supplierName": "Lorca Holding B.V.",
+      "orderDate": "2026-03-17T00:00:00.000+01:00",
+      "status": 10,
+      "statusText": "Open",
+      "receiptDate": "2026-03-17T00:00:00.000+01:00",
+      "receiptStatus": 10,
+      "receiptStatusText": "Open"
+    },
+    {
+      "nr": 743,
+      "supplierCode": "276",
+      "supplierName": "Lorca Holding B.V.",
+      "orderDate": "2026-03-17T00:00:00.000+01:00",
+      "status": 10,
+      "statusText": "Open",
+      "receiptDate": "2026-03-17T00:00:00.000+01:00",
+      "receiptStatus": 10,
+      "receiptStatusText": "Open"
+    },
+    {
+      "nr": 746,
+      "supplierCode": "276",
+      "supplierName": "Lorca Holding B.V.",
+      "orderDate": "2026-03-23T00:00:00.000+01:00",
+      "status": 10,
+      "statusText": "Open",
+      "receiptDate": "2026-03-23T00:00:00.000+01:00",
+      "receiptStatus": 10,
+      "receiptStatusText": "Open"
+    },
+    {
+      "nr": 747,
+      "supplierCode": "518",
+      "supplierName": "Choconut B.V.",
+      "orderDate": "2026-03-24T00:00:00.000+01:00",
+      "status": 20,
+      "statusText": "Goedgekeurd",
+      "receiptDate": "2026-03-24T00:00:00.000+01:00",
+      "receiptStatus": 30,
+      "receiptStatusText": "Volledig ontvangen"
+    },
+    {
+      "nr": 748,
+      "supplierCode": "214",
+      "supplierName": "Smurfit Kappa Zedek",
+      "orderDate": "2026-03-24T00:00:00.000+01:00",
+      "status": 10,
+      "statusText": "Open",
+      "receiptDate": "2026-05-05T00:00:00.000+02:00",
+      "receiptStatus": 10,
+      "receiptStatusText": "Open"
+    },
+    {
+      "nr": 749,
+      "supplierCode": "214",
+      "supplierName": "Smurfit Kappa Zedek",
+      "orderDate": "2026-03-24T00:00:00.000+01:00",
+      "status": 10,
+      "statusText": "Open",
+      "receiptDate": "2026-06-09T00:00:00.000+02:00",
+      "receiptStatus": 10,
+      "receiptStatusText": "Open"
+    },
+    {
+      "nr": 750,
+      "supplierCode": "96",
+      "supplierName": "Katjang Pedis PCI",
+      "orderDate": "2026-03-26T00:00:00.000+01:00",
+      "status": 20,
+      "statusText": "Goedgekeurd",
+      "receiptDate": "2026-03-25T00:00:00.000+01:00",
+      "receiptStatus": 30,
+      "receiptStatusText": "Volledig ontvangen"
+    },
+    {
+      "nr": 751,
+      "supplierCode": "518",
+      "supplierName": "Choconut B.V.",
+      "orderDate": "2026-03-26T00:00:00.000+01:00",
+      "status": 20,
+      "statusText": "Goedgekeurd",
+      "receiptDate": "2026-03-26T00:00:00.000+01:00",
+      "receiptStatus": 30,
+      "receiptStatusText": "Volledig ontvangen"
+    },
+    {
+      "nr": 752,
+      "supplierCode": "518",
+      "supplierName": "Choconut B.V.",
+      "orderDate": "2026-03-26T00:00:00.000+01:00",
+      "status": 20,
+      "statusText": "Goedgekeurd",
+      "receiptDate": "2026-03-26T00:00:00.000+01:00",
+      "receiptStatus": 30,
+      "receiptStatusText": "Volledig ontvangen"
+    },
+    {
+      "nr": 753,
+      "supplierCode": "518",
+      "supplierName": "Choconut B.V.",
+      "orderDate": "2026-03-30T00:00:00.000+02:00",
+      "status": 20,
+      "statusText": "Goedgekeurd",
+      "receiptDate": "2026-03-25T00:00:00.000+01:00",
+      "receiptStatus": 30,
+      "receiptStatusText": "Volledig ontvangen"
+    },
+    {
+      "nr": 754,
+      "supplierCode": "172",
+      "supplierName": "Global Co-packing B.V.",
+      "orderDate": "2026-03-30T00:00:00.000+02:00",
+      "status": 20,
+      "statusText": "Goedgekeurd",
+      "receiptDate": "2026-03-28T00:00:00.000+01:00",
+      "receiptStatus": 30,
+      "receiptStatusText": "Volledig ontvangen"
+    },
+    {
+      "nr": 755,
+      "supplierCode": "96",
+      "supplierName": "Katjang Pedis PCI",
+      "orderDate": "2026-03-30T00:00:00.000+02:00",
+      "status": 20,
+      "statusText": "Goedgekeurd",
+      "receiptDate": "2026-03-30T00:00:00.000+02:00",
+      "receiptStatus": 30,
+      "receiptStatusText": "Volledig ontvangen"
+    }
+  ],
+  "purchaseOrderLines": [
+    {
+      "orderNr": 746,
+      "itemCode": "2001006",
+      "description": "Cashew wholes green",
+      "quantity": 8958.6,
+      "receivedQuantity": 0.0,
+      "receiptDate": "2026-03-24T00:00:00.000+01:00"
+    },
+    {
+      "orderNr": 699,
+      "itemCode": "2001013",
+      "description": "Cashew broken red  (SWP) uitgesorteerd",
+      "quantity": 498.96,
+      "receivedQuantity": 0.0,
+      "receiptDate": "2026-01-14T00:00:00.000+01:00"
+    },
+    {
+      "orderNr": 671,
+      "itemCode": "2001006",
+      "description": "Cashew wholes green",
+      "quantity": 521.64,
+      "receivedQuantity": 0.0,
+      "receiptDate": "2025-12-10T00:00:00.000+01:00"
+    },
+    {
+      "orderNr": 730,
+      "itemCode": "2001000",
+      "description": "Cashew BIO LWP blue",
+      "quantity": 680.4,
+      "receivedQuantity": 0.0,
+      "receiptDate": "2026-03-10T00:00:00.000+01:00"
+    },
+    {
+      "orderNr": 530,
+      "itemCode": "3002010",
+      "description": "Parmesan style mixen en afvullen",
+      "quantity": 32114.405,
+      "receivedQuantity": 0.0,
+      "receiptDate": "2025-09-03T00:00:00.000+02:00",
+      "shopOrderNr": 334
+    },
+    {
+      "orderNr": 747,
+      "itemCode": "2002025",
+      "description": "Caramel Zeezout Almond 10kg doos bulk",
+      "quantity": 2530.0,
+      "receivedQuantity": 2530.0,
+      "receiptDate": "2026-03-27T00:00:00.000+01:00"
+    },
+    {
+      "orderNr": 732,
+      "itemCode": "2003116",
+      "description": "Johnny Cashew doos 8 x 100gr (NL). + perforatie",
+      "quantity": 15000.0,
+      "receivedQuantity": 0.0,
+      "receiptDate": "2026-03-25T00:00:00.000+01:00"
+    },
+    {
+      "orderNr": 743,
+      "itemCode": "2001012",
+      "description": "Cashew broken red  (SSP) uitgesorteerd",
+      "quantity": 680.4,
+      "receivedQuantity": 0.0,
+      "receiptDate": "2026-03-18T00:00:00.000+01:00"
+    },
+    {
+      "orderNr": 704,
+      "itemCode": "3002010",
+      "description": "Parmesan style mixen en afvullen",
+      "quantity": 21638.0,
+      "receivedQuantity": 0.0,
+      "receiptDate": "2026-02-26T00:00:00.000+01:00",
+      "shopOrderNr": 432
+    },
+    {
+      "orderNr": 672,
+      "itemCode": "2001006",
+      "description": "Cashew wholes green",
+      "quantity": 68.04,
+      "receivedQuantity": 0.0,
+      "receiptDate": "2025-12-10T00:00:00.000+01:00"
+    },
+    {
+      "orderNr": 687,
+      "itemCode": "2001001",
+      "description": "Cashew BIO wholes green",
+      "quantity": 2368.42,
+      "receivedQuantity": 0.0,
+      "receiptDate": "2025-12-24T00:00:00.000+01:00"
+    },
+    {
+      "orderNr": 674,
+      "itemCode": "2001005",
+      "description": "Cashew white large pieces blue",
+      "quantity": 181.44,
+      "receivedQuantity": 0.0,
+      "receiptDate": "2025-12-10T00:00:00.000+01:00"
+    },
+    {
+      "orderNr": 754,
+      "itemCode": "3001004",
+      "description": "Vullen zakjes",
+      "quantity": 49960.0,
+      "receivedQuantity": 49960.0,
+      "receiptDate": "2026-03-28T00:00:00.000+01:00",
+      "shopOrderNr": 445
+    },
+    {
+      "orderNr": 700,
+      "itemCode": "2001012",
+      "description": "Cashew broken red  (SSP) uitgesorteerd",
+      "quantity": 453.6,
+      "receivedQuantity": 0.0,
+      "receiptDate": "2026-01-14T00:00:00.000+01:00"
+    },
+    {
+      "orderNr": 739,
+      "itemCode": "2001006",
+      "description": "Cashew wholes green",
+      "quantity": 11907.0,
+      "receivedQuantity": 0.0,
+      "receiptDate": "2026-03-18T00:00:00.000+01:00"
+    },
+    {
+      "orderNr": 703,
+      "itemCode": "3002010",
+      "description": "Parmesan style mixen en afvullen",
+      "quantity": 21834.0,
+      "receivedQuantity": 0.0,
+      "receiptDate": "2026-02-26T00:00:00.000+01:00",
+      "shopOrderNr": 432
+    },
+    {
+      "orderNr": 738,
+      "itemCode": "2001012",
+      "description": "Cashew broken red  (SSP) uitgesorteerd",
+      "quantity": 680.4,
+      "receivedQuantity": 0.0,
+      "receiptDate": "2026-03-18T00:00:00.000+01:00"
+    },
+    {
+      "orderNr": 730,
+      "itemCode": "2001002",
+      "description": "Cashew BIO yellow",
+      "quantity": 657.72,
+      "receivedQuantity": 0.0,
+      "receiptDate": "2026-03-10T00:00:00.000+01:00"
+    },
+    {
+      "orderNr": 741,
+      "itemCode": "2001005",
+      "description": "Cashew white large pieces blue",
+      "quantity": 1769.04,
+      "receivedQuantity": 0.0,
+      "receiptDate": "2026-03-18T00:00:00.000+01:00"
+    },
+    {
+      "orderNr": 670,
+      "itemCode": "2001006",
+      "description": "Cashew wholes green",
+      "quantity": 181.44,
+      "receivedQuantity": 0.0,
+      "receiptDate": "2025-12-10T00:00:00.000+01:00"
+    },
+    {
+      "orderNr": 673,
+      "itemCode": "2001003",
+      "description": "Cashew broken large yellow",
+      "quantity": 1451.52,
+      "receivedQuantity": 0.0,
+      "receiptDate": "2025-12-10T00:00:00.000+01:00"
+    },
+    {
+      "orderNr": 735,
+      "itemCode": "2001003",
+      "description": "Cashew broken large yellow",
+      "quantity": 1383.48,
+      "receivedQuantity": 0.0,
+      "receiptDate": "2026-03-18T00:00:00.000+01:00"
+    },
+    {
+      "orderNr": 751,
+      "itemCode": "3002015",
+      "description": "Big bag chocolate honey seasalt",
+      "quantity": 3402.33,
+      "receivedQuantity": 3402.33,
+      "receiptDate": "2026-03-26T00:00:00.000+01:00",
+      "shopOrderNr": 439
+    },
+    {
+      "orderNr": 736,
+      "itemCode": "2001005",
+      "description": "Cashew white large pieces blue",
+      "quantity": 1701.0,
+      "receivedQuantity": 0.0,
+      "receiptDate": "2026-03-18T00:00:00.000+01:00"
+    },
+    {
+      "orderNr": 697,
+      "itemCode": "2001003",
+      "description": "Cashew broken large yellow",
+      "quantity": 1020.6,
+      "receivedQuantity": 0.0,
+      "receiptDate": "2026-01-14T00:00:00.000+01:00"
+    },
+    {
+      "orderNr": 733,
+      "itemCode": "2003115",
+      "description": "Johnny Cashew folie roasted & salted 25gr (Global)",
+      "quantity": 15000.0,
+      "receivedQuantity": 0.0,
+      "receiptDate": "2026-05-14T00:00:00.000+02:00"
+    },
+    {
+      "orderNr": 613,
+      "itemCode": "3002008",
+      "description": "Vermalen t.b.v. pasta",
+      "quantity": 1690.0,
+      "receivedQuantity": 0.0,
+      "receiptDate": "2025-11-05T00:00:00.000+01:00",
+      "shopOrderNr": 393
+    },
+    {
+      "orderNr": 748,
+      "itemCode": "2003033",
+      "description": "Lidl Way To Go doos opgezet",
+      "quantity": 7500.0,
+      "receivedQuantity": 0.0,
+      "receiptDate": "2026-05-05T00:00:00.000+02:00"
+    },
+    {
+      "orderNr": 749,
+      "itemCode": "2003033",
+      "description": "Lidl Way To Go doos opgezet",
+      "quantity": 7500.0,
+      "receivedQuantity": 0.0,
+      "receiptDate": "2026-06-09T00:00:00.000+02:00"
+    },
+    {
+      "orderNr": 737,
+      "itemCode": "2001013",
+      "description": "Cashew broken red  (SWP) uitgesorteerd",
+      "quantity": 204.13,
+      "receivedQuantity": 0.0,
+      "receiptDate": "2026-03-18T00:00:00.000+01:00"
+    },
+    {
+      "orderNr": 740,
+      "itemCode": "2001003",
+      "description": "Cashew broken large yellow",
+      "quantity": 1315.44,
+      "receivedQuantity": 0.0,
+      "receiptDate": "2026-03-18T00:00:00.000+01:00"
+    },
+    {
+      "orderNr": 753,
+      "itemCode": "3002020",
+      "description": "Cashew Caramel Seasalted 10 kg doos bulk",
+      "quantity": 2530.0,
+      "receivedQuantity": 2530.0,
+      "receiptDate": "2026-03-25T00:00:00.000+01:00",
+      "shopOrderNr": 443
+    },
+    {
+      "orderNr": 752,
+      "itemCode": "3002018",
+      "description": "Cinnamon Bun 10kg doos bulk",
+      "quantity": 2360.76,
+      "receivedQuantity": 2360.76,
+      "receiptDate": "2026-03-17T00:00:00.000+01:00",
+      "shopOrderNr": 441
+    },
+    {
+      "orderNr": 750,
+      "itemCode": "3002004",
+      "description": "Big bag honing zeezout",
+      "quantity": 1807.0,
+      "receivedQuantity": 1807.0,
+      "receiptDate": "2026-03-25T00:00:00.000+01:00",
+      "shopOrderNr": 448
+    },
+    {
+      "orderNr": 755,
+      "itemCode": "3002002",
+      "description": "Big bag gebrand gezouten",
+      "quantity": 4241.16,
+      "receivedQuantity": 4241.16,
+      "receiptDate": "2026-03-26T00:00:00.000+01:00",
+      "shopOrderNr": 458
+    },
+    {
+      "orderNr": 742,
+      "itemCode": "2001013",
+      "description": "Cashew broken red  (SWP) uitgesorteerd",
+      "quantity": 204.12,
+      "receivedQuantity": 0.0,
+      "receiptDate": "2026-03-18T00:00:00.000+01:00"
+    },
+    {
+      "orderNr": 698,
+      "itemCode": "2001005",
+      "description": "Cashew white large pieces blue",
+      "quantity": 1995.84,
+      "receivedQuantity": 0.0,
+      "receiptDate": "2026-01-14T00:00:00.000+01:00"
+    }
+  ],
+  "supplierItems": {
+    "8": [
+      {
+        "itemCode": "2001003",
+        "description": "Cashew broken large yellow"
+      },
+      {
+        "itemCode": "2001004",
+        "description": "Cashew broken small red"
+      },
+      {
+        "itemCode": "2001005",
+        "description": "Cashew white large pieces blue"
+      },
+      {
+        "itemCode": "2001006",
+        "description": "Cashew wholes green"
+      },
+      {
+        "itemCode": "2001014",
+        "description": "Cashew wholes green (BW) uitgesorteerd"
+      },
+      {
+        "itemCode": "2001015",
+        "description": "Cashew wholes green (DW) uitgesorteerd"
+      }
+    ],
+    "96": [
+      {
+        "itemCode": "2001001",
+        "description": "Cashew BIO wholes green"
+      },
+      {
+        "itemCode": "2002001",
+        "description": "Big bag BIO honing zeezout 600kg"
+      },
+      {
+        "itemCode": "2002003",
+        "description": "Big bag gebrand ongezouten 600kg"
+      },
+      {
+        "itemCode": "2002004",
+        "description": "Big bag honing zeezout 600kg"
+      },
+      {
+        "itemCode": "2002013",
+        "description": "Big bag Sweet Chili 600 kg"
+      },
+      {
+        "itemCode": "2002014",
+        "description": "Big bag smokey BBQ"
+      },
+      {
+        "itemCode": "2002015",
+        "description": "Big bag cheese onion"
+      },
+      {
+        "itemCode": "2002016",
+        "description": "Chocolate Honey Seasalt 10kg doos bulk"
+      },
+      {
+        "itemCode": "2002018",
+        "description": "Cinnamon Bun 10 kg doos bulk"
+      },
+      {
+        "itemCode": "2002020",
+        "description": "Big Bag Honing Zeezout RFA 600kg"
+      },
+      {
+        "itemCode": "2002024",
+        "description": "Caramel Zeezout Cashew 10kg doos bulk"
+      }
+    ],
+    "129": [
+      {
+        "itemCode": "2003003",
+        "description": "Johnny Cashew BIO folie gezouten 125gr"
+      },
+      {
+        "itemCode": "2003004",
+        "description": "Johnny Cashew BIO folie honing zeezout 125gr"
+      },
+      {
+        "itemCode": "2003005",
+        "description": "Johnny Cashew BIO folie hot chili 125gr"
+      },
+      {
+        "itemCode": "2003011",
+        "description": "Johnny Cashew folie gebrand gezouten 25gr"
+      },
+      {
+        "itemCode": "2003014",
+        "description": "Johnny Cashew folie gebrand gezouten 125gr"
+      },
+      {
+        "itemCode": "2003015",
+        "description": "Johnny Cashew folie gebrand gezouten 12gr"
+      },
+      {
+        "itemCode": "2003017",
+        "description": "Johnny Cashew folie honing zeezout 125gr"
+      },
+      {
+        "itemCode": "2003018",
+        "description": "Johnny Cashew folie honing zeezout 12gr"
+      },
+      {
+        "itemCode": "2003020",
+        "description": "Johnny Cashew folie hot chili 125gr"
+      },
+      {
+        "itemCode": "2003023",
+        "description": "Johnny Cashew folie ongebrand ongezouten 125gr"
+      },
+      {
+        "itemCode": "2003024",
+        "description": "Johnny Cashew folie ongebrand ongezouten 12gr"
+      },
+      {
+        "itemCode": "2003026",
+        "description": "Johnny Cashew folie raw 25gr (NL)"
+      },
+      {
+        "itemCode": "2003027",
+        "description": "Johnny Cashew folie gebrand ongezouten 125gr"
+      },
+      {
+        "itemCode": "2003034",
+        "description": "Lidl Way To Go folie gebrand gezouten 175gr (BG/LT)"
+      },
+      {
+        "itemCode": "2003035",
+        "description": "Lidl Way To Go folie gebrand gezouten 175gr (ES/IT/PT)"
+      },
+      {
+        "itemCode": "2003036",
+        "description": "Lidl Way To Go folie gebrand gezouten 175gr (NL)"
+      },
+      {
+        "itemCode": "2003037",
+        "description": "Lidl Way To Go folie gebrand gezouten 175gr (SE/DK/FI)"
+      },
+      {
+        "itemCode": "2003038",
+        "description": "Lidl Way To Go folie knoflook rozemarijn 175gr (NL)"
+      },
+      {
+        "itemCode": "2003039",
+        "description": "Lidl Way To Go folie ongebrand ongezouten 175gr (BG/LT)"
+      },
+      {
+        "itemCode": "2003040",
+        "description": "Lidl Way To Go folie ongebrand ongezouten 175gr (ES/IT/PT)"
+      },
+      {
+        "itemCode": "2003042",
+        "description": "Lidl Way To Go folie ongebrand ongezouten 175gr (SE/FI/DK)"
+      },
+      {
+        "itemCode": "2003043",
+        "description": "Way to Go folie ongebrand ongezouten 25gr"
+      },
+      {
+        "itemCode": "2003050",
+        "description": "Johnny Cashew folie hot chili 125gr (INT)"
+      },
+      {
+        "itemCode": "2003051",
+        "description": "Johnny Cashew folie honing zeezout 125gr (INT)"
+      },
+      {
+        "itemCode": "2003052",
+        "description": "Johnny Cashew folie ongebrand ongezouten 125gr (INT)"
+      },
+      {
+        "itemCode": "2003053",
+        "description": "Johnny Cashew folie gebrand gezouten 125gr (INT)"
+      },
+      {
+        "itemCode": "2003054",
+        "description": "Johnny Cashew folie gebrand ongezouten 125gr (INT)"
+      },
+      {
+        "itemCode": "2003063",
+        "description": "Johnny Cashew folie gebrand gezouten 100gr"
+      },
+      {
+        "itemCode": "2003064",
+        "description": "Johnny Cashew folie ongebrand ongezouten 100gr"
+      },
+      {
+        "itemCode": "2003065",
+        "description": "Johnny Cashew folie gebrand ongezouten 100gr"
+      },
+      {
+        "itemCode": "2003066",
+        "description": "Johnny Cashew folie honing zeezout 100gr"
+      },
+      {
+        "itemCode": "2003067",
+        "description": "Johnny Cashew folie hot chili 100gr"
+      },
+      {
+        "itemCode": "2003068",
+        "description": "Johnny Cashew folie honing zeezout 25gr"
+      },
+      {
+        "itemCode": "2003069",
+        "description": "Johnny Cashew folie roasted & salted 100gr (Intl)"
+      },
+      {
+        "itemCode": "2003070",
+        "description": "Johnny Cashew folie raw 100gr (Intl)"
+      },
+      {
+        "itemCode": "2003071",
+        "description": "Johnny Cashew folie roasted unsalted 100gr (Intl)"
+      },
+      {
+        "itemCode": "2003072",
+        "description": "Johnny Cashew folie honey roasted sea salt 100gr (Intl)"
+      },
+      {
+        "itemCode": "2003073",
+        "description": "Johnny Cashew folie hot chilli 100gr (Intl)"
+      },
+      {
+        "itemCode": "2003074",
+        "description": "Johnny Cashew folie roasted & salted 25gr (Intl)"
+      },
+      {
+        "itemCode": "2003075",
+        "description": "Johnny Cashew folie raw 25gr (Intl)"
+      },
+      {
+        "itemCode": "2003076",
+        "description": "Johnny Cashew folie honey roasted seasalt 25gr (Intl)"
+      },
+      {
+        "itemCode": "2003085",
+        "description": "Lidl Way to Go Parmesan folie NL"
+      },
+      {
+        "itemCode": "2003091",
+        "description": "Johnny Cashew folie choco honey sea salt 100gr (NL)"
+      },
+      {
+        "itemCode": "2003092",
+        "description": "Lidl Way To Go folie chili 175gr (NL)"
+      },
+      {
+        "itemCode": "2003093",
+        "description": "Lidl Way To Go folie gebrand gezouten 200gr (NL)"
+      },
+      {
+        "itemCode": "2003094",
+        "description": "Lidl Way To Go folie Gebrand Ongezouten 200gr (NL)"
+      },
+      {
+        "itemCode": "2003098",
+        "description": "Lidl Way To Go folie knoflook rozemarijn 175gr (FR)"
+      },
+      {
+        "itemCode": "2003099",
+        "description": "Lidl Way To Go folie gebrand gezouten 175gr (FR)"
+      },
+      {
+        "itemCode": "2003100",
+        "description": "Johnny Cashew BIO folie Indian Curry 125gr"
+      },
+      {
+        "itemCode": "2003101",
+        "description": "Johnny Cashew folie Sweet Chili 100gr"
+      },
+      {
+        "itemCode": "2003102",
+        "description": "Lidl Way to Go Parmesan folie NL/BE"
+      },
+      {
+        "itemCode": "2003103",
+        "description": "Lidl Way to Go Parmesan folie DE"
+      },
+      {
+        "itemCode": "2003104",
+        "description": "Johnny Cashew folie Roasted & Salted 100gr (Global)"
+      },
+      {
+        "itemCode": "2003105",
+        "description": "Johnny Cashew folie Honey & Sea Salt 100gr (Global)"
+      },
+      {
+        "itemCode": "2003106",
+        "description": "Johnny Cashew folie Chocolate Honey Sea Salt 100gr (Global)"
+      },
+      {
+        "itemCode": "2003107",
+        "description": "Johnny Cashew folie Cinnamon Bun 100gr"
+      },
+      {
+        "itemCode": "2003109",
+        "description": "Johnny Cashew folie Roasted & Salted RFA 100gr"
+      },
+      {
+        "itemCode": "2003110",
+        "description": "Johnny Cashew folie Honey & Sea Salt RFA 100gr"
+      },
+      {
+        "itemCode": "2003111",
+        "description": "Johnny Cashew folie Cinnamon Bun RFA 100gr"
+      },
+      {
+        "itemCode": "2003112",
+        "description": "Johnny Cashew folie Sweet Chili RFA 100gr"
+      },
+      {
+        "itemCode": "2003113",
+        "description": "Johnny Cashew folie Choco Honey Sea Salt RFA 100gr"
+      },
+      {
+        "itemCode": "2003114",
+        "description": "Johnny Cashew folie caramel Almond Cashew mix 100gr"
+      },
+      {
+        "itemCode": "2003115",
+        "description": "Johnny Cashew folie roasted & salted 25gr (Global)"
+      }
+    ],
+    "170": [
+      {
+        "itemCode": "2003002",
+        "description": "Johnny Cashew amerikaanse doos (390 x 290 x 150)"
+      }
+    ],
+    "176": [
+      {
+        "itemCode": "2003000",
+        "description": "b1 folie ongebakken ongez jc 30 gr"
+      },
+      {
+        "itemCode": "2003012",
+        "description": "Johnny Cashew folie gebrand ongezouten 150gr"
+      },
+      {
+        "itemCode": "2003016",
+        "description": "Johnny Cashew folie ongebrand gezouten 150gr"
+      },
+      {
+        "itemCode": "2003025",
+        "description": "Johnny Cashew folie ongebrand ongezouten 150gr"
+      }
+    ],
+    "178": [
+      {
+        "itemCode": "2003036",
+        "description": "Lidl Way To Go folie gebrand gezouten 175gr (NL)"
+      },
+      {
+        "itemCode": "2003041",
+        "description": "Lidl Way To Go folie ongebrand ongezouten 175gr (NL)"
+      },
+      {
+        "itemCode": "2003092",
+        "description": "Lidl Way To Go folie chili 175gr (NL)"
+      },
+      {
+        "itemCode": "2003093",
+        "description": "Lidl Way To Go folie gebrand gezouten 200gr (NL)"
+      },
+      {
+        "itemCode": "2003094",
+        "description": "Lidl Way To Go folie Gebrand Ongezouten 200gr (NL)"
+      },
+      {
+        "itemCode": "2003099",
+        "description": "Lidl Way To Go folie gebrand gezouten 175gr (FR)"
+      }
+    ],
+    "214": [
+      {
+        "itemCode": "2003002",
+        "description": "Johnny Cashew amerikaanse doos (390 x 290 x 150)"
+      },
+      {
+        "itemCode": "2003006",
+        "description": "Johnny Cashew doos 125gr"
+      },
+      {
+        "itemCode": "2003007",
+        "description": "Johnny Cashew doos 125gr (OUD)"
+      },
+      {
+        "itemCode": "2003008",
+        "description": "Johnny Cashew doos gezouten 12 x 25gr"
+      },
+      {
+        "itemCode": "2003009",
+        "description": "Johnny Cashew doos omreiskoffer"
+      },
+      {
+        "itemCode": "2003010",
+        "description": "Johnny Cashew doos ongebrand ongezouten 12 x 25gr"
+      },
+      {
+        "itemCode": "2003031",
+        "description": "Lidl Way To Go doos opgezet 3 x 18 x 25gr"
+      },
+      {
+        "itemCode": "2003033",
+        "description": "Lidl Way To Go doos opgezet"
+      },
+      {
+        "itemCode": "2003062",
+        "description": "Johnny Cashew Amerikaanse doos (400 x 300 x 180)"
+      },
+      {
+        "itemCode": "2003077",
+        "description": "Johnny Cashew SRP doos roasted & salted 100gr (Intl)"
+      },
+      {
+        "itemCode": "2003078",
+        "description": "Johnny Cashew SRP doos raw 100gr (Intl)"
+      },
+      {
+        "itemCode": "2003079",
+        "description": "Johnny Cashew SRP doos roasted unsalted 100gr (Intl)"
+      },
+      {
+        "itemCode": "2003080",
+        "description": "Johnny Cashew SRP doos honey roasted seasalt 100gr (Intl)"
+      },
+      {
+        "itemCode": "2003081",
+        "description": "Johnny Cashew SRP doos hot chilli 100gr (Intl)"
+      },
+      {
+        "itemCode": "2003082",
+        "description": "Johnny Cashew doos honing zeezout 25gr"
+      },
+      {
+        "itemCode": "2003083",
+        "description": "Johnny Cashew doos 8 x 100gr (NL)"
+      },
+      {
+        "itemCode": "2003084",
+        "description": "Lidl Way to Go Parmesan doos onderkant"
+      },
+      {
+        "itemCode": "2003086",
+        "description": "Lidl Way to Go Parmesan doos deksel"
+      },
+      {
+        "itemCode": "2003116",
+        "description": "Johnny Cashew doos 8 x 100gr (NL). + perforatie"
+      }
+    ],
+    "276": [
+      {
+        "itemCode": "2001003",
+        "description": "Cashew broken large yellow"
+      },
+      {
+        "itemCode": "2001004",
+        "description": "Cashew broken small red"
+      },
+      {
+        "itemCode": "2001005",
+        "description": "Cashew white large pieces blue"
+      },
+      {
+        "itemCode": "2001006",
+        "description": "Cashew wholes green"
+      },
+      {
+        "itemCode": "2001007",
+        "description": "Cashew broken small red 1 (WSP - SSP)"
+      },
+      {
+        "itemCode": "2001008",
+        "description": "Cashew broken small red 2 (BB1 - BB2 - BW)"
+      },
+      {
+        "itemCode": "2001011",
+        "description": "Cashew broken red  (BB1 - BB2) uitgesorteerd"
+      },
+      {
+        "itemCode": "2001012",
+        "description": "Cashew broken red  (SSP) uitgesorteerd"
+      },
+      {
+        "itemCode": "2001013",
+        "description": "Cashew broken red  (SWP) uitgesorteerd"
+      },
+      {
+        "itemCode": "2001014",
+        "description": "Cashew wholes green (BW) uitgesorteerd"
+      },
+      {
+        "itemCode": "2001015",
+        "description": "Cashew wholes green (DW) uitgesorteerd"
+      },
+      {
+        "itemCode": "2001020",
+        "description": "Cashew Mixed Bag RFA"
+      }
+    ],
+    "307": [
+      {
+        "itemCode": "2001000",
+        "description": "Cashew BIO LWP blue"
+      },
+      {
+        "itemCode": "2001001",
+        "description": "Cashew BIO wholes green"
+      },
+      {
+        "itemCode": "2001002",
+        "description": "Cashew BIO yellow"
+      }
+    ],
+    "518": [
+      {
+        "itemCode": "2001101",
+        "description": "Almond (choconut)"
+      },
+      {
+        "itemCode": "2002025",
+        "description": "Caramel Zeezout Almond 10kg doos bulk"
+      }
+    ],
+    "662": [
+      {
+        "itemCode": "2001016",
+        "description": "Cashew Green RFA"
+      },
+      {
+        "itemCode": "2001017",
+        "description": "Cashew Yellow RFA"
+      },
+      {
+        "itemCode": "2001018",
+        "description": "Cashew Blue RFA"
+      },
+      {
+        "itemCode": "2001019",
+        "description": "Cashew Red RFA"
+      }
+    ],
+    "740": [
+      {
+        "itemCode": "2001000",
+        "description": "Cashew BIO LWP blue"
+      },
+      {
+        "itemCode": "2001002",
+        "description": "Cashew BIO yellow"
+      }
+    ]
+  },
+  "stockData": {
+    "2001000": {
+      "description": "Cashew BIO LWP blue",
+      "currentStock": 113.40000000000002,
+      "unit": "pc"
+    },
+    "2001001": {
+      "description": "Cashew BIO wholes green",
+      "currentStock": 22.680000000000433,
+      "unit": "pc"
+    },
+    "2001002": {
+      "description": "Cashew BIO yellow",
+      "currentStock": 272.15999999999997,
+      "unit": "pc"
+    },
+    "2001003": {
+      "description": "Cashew broken large yellow",
+      "currentStock": 8300.88,
+      "unit": "kg"
+    },
+    "2001005": {
+      "description": "Cashew white large pieces blue",
+      "currentStock": 5057.639999999992,
+      "unit": "kg"
+    },
+    "2001006": {
+      "description": "Cashew wholes green",
+      "currentStock": 13744.079999999987,
+      "unit": "kg"
+    },
+    "2001007": {
+      "description": "Cashew broken small red 1 (WSP - SSP)",
+      "currentStock": 1973.1599999999985,
+      "unit": "kg"
+    },
+    "2001008": {
+      "description": "Cashew broken small red 2 (BB1 - BB2 - BW)",
+      "currentStock": 204.1200000000017,
+      "unit": "kg"
+    },
+    "2001009": {
+      "description": "Cashew lwp Raaskal",
+      "currentStock": 1.7053025658242404e-13,
+      "unit": "kg"
+    },
+    "2001010": {
+      "description": "Cashew red Raaskal",
+      "currentStock": 4254.6,
+      "unit": "kg"
+    },
+    "2001012": {
+      "description": "Cashew broken red  (SSP) uitgesorteerd",
+      "currentStock": 6713.280000000001,
+      "unit": "kg"
+    },
+    "2001013": {
+      "description": "Cashew broken red  (SWP) uitgesorteerd",
+      "currentStock": 1315.44,
+      "unit": "kg"
+    },
+    "2001014": {
+      "description": "Cashew wholes green (BW) uitgesorteerd",
+      "currentStock": 1.2789769243681803e-13,
+      "unit": "kg"
+    },
+    "2001500": {
+      "description": "Kruiden Sweet Chili",
+      "currentStock": 322.75,
+      "unit": "kg"
+    },
+    "2002002": {
+      "description": "Big bag gebrand gezouten 600kg",
+      "currentStock": 4348.999999999996,
+      "unit": "kg"
+    },
+    "2002004": {
+      "description": "Big bag honing zeezout 600kg",
+      "currentStock": 2357.0,
+      "unit": "kg"
+    },
+    "2002007": {
+      "description": "Big bag ongebrand ongezouten 600kg",
+      "currentStock": 604.9999999999993,
+      "unit": "kg"
+    },
+    "2002009": {
+      "description": "big bag broken cleaned 600kg",
+      "currentStock": 485.9999999999998,
+      "unit": "kg"
+    },
+    "2002012": {
+      "description": "Big Bag hot chili (nieuwe receptuur)",
+      "currentStock": 190.0,
+      "unit": "kg"
+    },
+    "2002016": {
+      "description": "Chocolate Honey Seasalt 10kg doos bulk",
+      "currentStock": 3402.33,
+      "unit": "kg"
+    },
+    "2002018": {
+      "description": "Cinnamon Bun 10 kg doos bulk",
+      "currentStock": 2360.76,
+      "unit": "kg"
+    },
+    "2003001": {
+      "description": "Johnny Cashew blik 80gr",
+      "currentStock": 39600.0,
+      "unit": "pc"
+    },
+    "2003002": {
+      "description": "Johnny Cashew amerikaanse doos (390 x 290 x 150)",
+      "currentStock": 3360.0,
+      "unit": "pc"
+    },
+    "2003003": {
+      "description": "Johnny Cashew BIO folie gezouten 125gr",
+      "currentStock": 966.0,
+      "unit": "mt"
+    },
+    "2003004": {
+      "description": "Johnny Cashew BIO folie honing zeezout 125gr",
+      "currentStock": 1676.0,
+      "unit": "mt"
+    },
+    "2003005": {
+      "description": "Johnny Cashew BIO folie hot chili 125gr",
+      "currentStock": 1562.0,
+      "unit": "mt"
+    },
+    "2003008": {
+      "description": "Johnny Cashew doos gezouten 12 x 25gr",
+      "currentStock": 2640.0,
+      "unit": "pc"
+    },
+    "2003010": {
+      "description": "Johnny Cashew doos ongebrand ongezouten 12 x 25gr",
+      "currentStock": 1621.0,
+      "unit": "pc"
+    },
+    "2003011": {
+      "description": "Johnny Cashew folie gebrand gezouten 25gr",
+      "currentStock": 286.0,
+      "unit": "pc"
+    },
+    "2003014": {
+      "description": "Johnny Cashew folie gebrand gezouten 125gr",
+      "currentStock": 2700.000000000001,
+      "unit": "mt"
+    },
+    "2003016": {
+      "description": "Johnny Cashew folie ongebrand gezouten 150gr",
+      "currentStock": 3674.0,
+      "unit": "mt"
+    },
+    "2003017": {
+      "description": "Johnny Cashew folie honing zeezout 125gr",
+      "currentStock": 5245.0,
+      "unit": "mt"
+    },
+    "2003020": {
+      "description": "Johnny Cashew folie hot chili 125gr",
+      "currentStock": 3450.0,
+      "unit": "mt"
+    },
+    "2003023": {
+      "description": "Johnny Cashew folie ongebrand ongezouten 125gr",
+      "currentStock": 3518.0,
+      "unit": "mt"
+    },
+    "2003026": {
+      "description": "Johnny Cashew folie raw 25gr (NL)",
+      "currentStock": 2672.0,
+      "unit": "pc"
+    },
+    "2003027": {
+      "description": "Johnny Cashew folie gebrand ongezouten 125gr",
+      "currentStock": 1641.0,
+      "unit": "pc"
+    },
+    "2003032": {
+      "description": "Lidl Way To Go Banderol",
+      "currentStock": 55099.0,
+      "unit": "pc"
+    },
+    "2003033": {
+      "description": "Lidl Way To Go doos opgezet",
+      "currentStock": 5159.0,
+      "unit": "pc"
+    },
+    "2003034": {
+      "description": "Lidl Way To Go folie gebrand gezouten 175gr (BG/LT)",
+      "currentStock": 430.0,
+      "unit": "mt"
+    },
+    "2003035": {
+      "description": "Lidl Way To Go folie gebrand gezouten 175gr (ES/IT/PT)",
+      "currentStock": 6190.16,
+      "unit": "mt"
+    },
+    "2003036": {
+      "description": "Lidl Way To Go folie gebrand gezouten 175gr (NL)",
+      "currentStock": 18829.6,
+      "unit": "mt"
+    },
+    "2003037": {
+      "description": "Lidl Way To Go folie gebrand gezouten 175gr (SE/DK/FI)",
+      "currentStock": 5419.0,
+      "unit": "mt"
+    },
+    "2003038": {
+      "description": "Lidl Way To Go folie knoflook rozemarijn 175gr (NL)",
+      "currentStock": 11569.999999999996,
+      "unit": "mt"
+    },
+    "2003039": {
+      "description": "Lidl Way To Go folie ongebrand ongezouten 175gr (BG/LT)",
+      "currentStock": 210.0,
+      "unit": "mt"
+    },
+    "2003040": {
+      "description": "Lidl Way To Go folie ongebrand ongezouten 175gr (ES/IT/PT)",
+      "currentStock": 3150.3999999999996,
+      "unit": "mt"
+    },
+    "2003041": {
+      "description": "Lidl Way To Go folie ongebrand ongezouten 175gr (NL)",
+      "currentStock": 6152.0,
+      "unit": "mt"
+    },
+    "2003042": {
+      "description": "Lidl Way To Go folie ongebrand ongezouten 175gr (SE/FI/DK)",
+      "currentStock": 16989.0,
+      "unit": "mt"
+    },
+    "2003043": {
+      "description": "Way to Go folie ongebrand ongezouten 25gr",
+      "currentStock": 4749.540000000001,
+      "unit": "mt"
+    },
+    "2003050": {
+      "description": "Johnny Cashew folie hot chili 125gr (INT)",
+      "currentStock": 2800.0,
+      "unit": "mt"
+    },
+    "2003051": {
+      "description": "Johnny Cashew folie honing zeezout 125gr (INT)",
+      "currentStock": 2800.0,
+      "unit": "mt"
+    },
+    "2003052": {
+      "description": "Johnny Cashew folie ongebrand ongezouten 125gr (INT)",
+      "currentStock": 2800.0,
+      "unit": "mt"
+    },
+    "2003053": {
+      "description": "Johnny Cashew folie gebrand gezouten 125gr (INT)",
+      "currentStock": 2800.0,
+      "unit": "mt"
+    },
+    "2003054": {
+      "description": "Johnny Cashew folie gebrand ongezouten 125gr (INT)",
+      "currentStock": 2800.0,
+      "unit": "pc"
+    },
+    "2003062": {
+      "description": "Johnny Cashew Amerikaanse doos (400 x 300 x 180)",
+      "currentStock": 85.0,
+      "unit": "DS"
+    },
+    "2003063": {
+      "description": "Johnny Cashew folie gebrand gezouten 100gr",
+      "currentStock": 8318.0,
+      "unit": "mt"
+    },
+    "2003064": {
+      "description": "Johnny Cashew folie ongebrand ongezouten 100gr",
+      "currentStock": 2750.0,
+      "unit": "mt"
+    },
+    "2003065": {
+      "description": "Johnny Cashew folie gebrand ongezouten 100gr",
+      "currentStock": 1800.0,
+      "unit": "mt"
+    },
+    "2003067": {
+      "description": "Johnny Cashew folie hot chili 100gr",
+      "currentStock": 6734.0,
+      "unit": "mt"
+    },
+    "2003068": {
+      "description": "Johnny Cashew folie honing zeezout 25gr",
+      "currentStock": 4335.0,
+      "unit": "mt"
+    },
+    "2003069": {
+      "description": "Johnny Cashew folie roasted & salted 100gr (Intl)",
+      "currentStock": 14680.0,
+      "unit": "mt"
+    },
+    "2003070": {
+      "description": "Johnny Cashew folie raw 100gr (Intl)",
+      "currentStock": 8310.0,
+      "unit": "mt"
+    },
+    "2003071": {
+      "description": "Johnny Cashew folie roasted unsalted 100gr (Intl)",
+      "currentStock": 2500.0,
+      "unit": "mt"
+    },
+    "2003072": {
+      "description": "Johnny Cashew folie honey roasted sea salt 100gr (Intl)",
+      "currentStock": 7428.0,
+      "unit": "mt"
+    },
+    "2003073": {
+      "description": "Johnny Cashew folie hot chilli 100gr (Intl)",
+      "currentStock": 15606.0,
+      "unit": "mt"
+    },
+    "2003074": {
+      "description": "Johnny Cashew folie roasted & salted 25gr (Intl)",
+      "currentStock": 17815.0,
+      "unit": "mt"
+    },
+    "2003075": {
+      "description": "Johnny Cashew folie raw 25gr (Intl)",
+      "currentStock": 7860.0,
+      "unit": "mt"
+    },
+    "2003076": {
+      "description": "Johnny Cashew folie honey roasted seasalt 25gr (Intl)",
+      "currentStock": 8295.0,
+      "unit": "mt"
+    },
+    "2003077": {
+      "description": "Johnny Cashew SRP doos roasted & salted 100gr (Intl)",
+      "currentStock": 6989.0,
+      "unit": "pc"
+    },
+    "2003078": {
+      "description": "Johnny Cashew SRP doos raw 100gr (Intl)",
+      "currentStock": 2212.0,
+      "unit": "pc"
+    },
+    "2003079": {
+      "description": "Johnny Cashew SRP doos roasted unsalted 100gr (Intl)",
+      "currentStock": 2625.0,
+      "unit": "pc"
+    },
+    "2003080": {
+      "description": "Johnny Cashew SRP doos honey roasted seasalt 100gr (Intl)",
+      "currentStock": 15110.0,
+      "unit": "pc"
+    },
+    "2003081": {
+      "description": "Johnny Cashew SRP doos hot chilli 100gr (Intl)",
+      "currentStock": 7480.0,
+      "unit": "pc"
+    },
+    "2003082": {
+      "description": "Johnny Cashew doos honing zeezout 25gr",
+      "currentStock": 5330.0,
+      "unit": "pc"
+    },
+    "2003083": {
+      "description": "Johnny Cashew doos 8 x 100gr (NL)",
+      "currentStock": 6072.0,
+      "unit": "pc"
+    },
+    "2003084": {
+      "description": "Lidl Way to Go Parmesan doos onderkant",
+      "currentStock": 11636.0,
+      "unit": "DS"
+    },
+    "2003086": {
+      "description": "Lidl Way to Go Parmesan doos deksel",
+      "currentStock": 9825.0,
+      "unit": "DS"
+    },
+    "2003089": {
+      "description": "Johnny Cashew Bio UDEA  sticker voorkant",
+      "currentStock": 1150.0,
+      "unit": "pc"
+    },
+    "2003090": {
+      "description": "Johnny Cashew Bio UDEA  sticker achterkant",
+      "currentStock": 550.0,
+      "unit": "pc"
+    },
+    "2003091": {
+      "description": "Johnny Cashew folie choco honey sea salt 100gr (NL)",
+      "currentStock": 3600.0,
+      "unit": "mt"
+    },
+    "2003092": {
+      "description": "Lidl Way To Go folie chili 175gr (NL)",
+      "currentStock": 11217.0,
+      "unit": "mt"
+    },
+    "2003093": {
+      "description": "Lidl Way To Go folie gebrand gezouten 200gr (NL)",
+      "currentStock": 18509.0,
+      "unit": "mt"
+    },
+    "2003094": {
+      "description": "Lidl Way To Go folie Gebrand Ongezouten 200gr (NL)",
+      "currentStock": 20938.0,
+      "unit": "mt"
+    },
+    "2003095": {
+      "description": "Johnny Cashew transparant folie 1 KG zakken",
+      "currentStock": 420.0,
+      "unit": "mt"
+    },
+    "2003096": {
+      "description": "Johnny Cashew sticker 1 KG salted",
+      "currentStock": 2380.0,
+      "unit": "pc"
+    },
+    "2003097": {
+      "description": "Johnny Cashew sticker 1 KG raw",
+      "currentStock": 2680.0,
+      "unit": "pc"
+    },
+    "2003098": {
+      "description": "Lidl Way To Go folie knoflook rozemarijn 175gr (FR)",
+      "currentStock": 900.0,
+      "unit": "mt"
+    },
+    "2003099": {
+      "description": "Lidl Way To Go folie gebrand gezouten 175gr (FR)",
+      "currentStock": 850.0,
+      "unit": "mt"
+    },
+    "2003100": {
+      "description": "Johnny Cashew BIO folie Indian Curry 125gr",
+      "currentStock": 450.0,
+      "unit": "mt"
+    },
+    "2003101": {
+      "description": "Johnny Cashew folie Sweet Chili 100gr",
+      "currentStock": 1418.0,
+      "unit": "mt"
+    },
+    "2003102": {
+      "description": "Lidl Way to Go Parmesan folie NL/BE",
+      "currentStock": 116154.0,
+      "unit": "pc"
+    },
+    "2003103": {
+      "description": "Lidl Way to Go Parmesan folie DE",
+      "currentStock": 44800.0,
+      "unit": "pc"
+    },
+    "2003104": {
+      "description": "Johnny Cashew folie Roasted & Salted 100gr (Global)",
+      "currentStock": 4800.0,
+      "unit": "mt"
+    },
+    "2003105": {
+      "description": "Johnny Cashew folie Honey & Sea Salt 100gr (Global)",
+      "currentStock": 5644.0,
+      "unit": "mt"
+    },
+    "2003106": {
+      "description": "Johnny Cashew folie Chocolate Honey Sea Salt 100gr (Global)",
+      "currentStock": 13630.0,
+      "unit": "mt"
+    },
+    "2003107": {
+      "description": "Johnny Cashew folie Cinnamon Bun 100gr",
+      "currentStock": 8670.0,
+      "unit": "mt"
+    },
+    "2003109": {
+      "description": "Johnny Cashew folie Roasted & Salted RFA 100gr",
+      "currentStock": 2138.0,
+      "unit": "mt"
+    },
+    "2003110": {
+      "description": "Johnny Cashew folie Honey & Sea Salt RFA 100gr",
+      "currentStock": 2540.0,
+      "unit": "mt"
+    },
+    "2003111": {
+      "description": "Johnny Cashew folie Cinnamon Bun RFA 100gr",
+      "currentStock": 2545.0,
+      "unit": "mt"
+    },
+    "2003113": {
+      "description": "Johnny Cashew folie Choco Honey Sea Salt RFA 100gr",
+      "currentStock": 2520.0,
+      "unit": "mt"
+    },
+    "2003114": {
+      "description": "Johnny Cashew folie caramel Almond Cashew mix 100gr",
+      "currentStock": 6334.0,
+      "unit": "mt"
+    },
+    "2003115": {
+      "description": "Johnny Cashew folie roasted & salted 25gr (Global)",
+      "currentStock": 10989.0,
+      "unit": "mt"
+    },
+    "2003117": {
+      "description": "Bruine DHL doos 8 stuks 604x271x366mm",
+      "currentStock": 763.0,
+      "unit": "pc"
+    },
+    "2003118": {
+      "description": "Bruine DHL doos 12 stuks 604x399x366mm",
+      "currentStock": 778.0,
+      "unit": "pc"
+    }
+  },
+  "supplierNames": {
+    "503": "Raaskal Foodcreators B.V.",
+    "371": "Euronuts Notenveredelingsindustrie B.V.",
+    "276": "Lorca Holding B.V.",
+    "307": "BIOTAN Austria GmbH",
+    "740": "Nuts2 B.V.",
+    "214": "Smurfit Kappa Zedek",
+    "129": "Estiko Plastar As",
+    "518": "Choconut B.V.",
+    "96": "Katjang Pedis PCI",
+    "172": "Global Co-packing B.V.",
+    "257": "Nuts Cleaning & Packaging B.V."
+  }
+}

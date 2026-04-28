@@ -1,0 +1,13 @@
+[build]
+  publish = "."
+  command = "echo 'Static site — no build needed'"
+
+[functions]
+  directory = "netlify/functions"
+
+[dev]
+  framework = "#static"
+  command = "echo 'Static server ready'"
+  port = 8888
+  publish = "."
+  autoLaunch = false

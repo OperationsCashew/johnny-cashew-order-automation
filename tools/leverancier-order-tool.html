@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Johnny Cashew Analytics</title>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- CSS extracted to css/styles.css -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Johnny Cashew Analytics</h1>
+        <div id="lastUpdated" class="hidden"></div>
+
+        <!-- Loading indicator -->
+        <div id="loadingIndicator">
+            <div class="spinner"></div>
+            <div>Data laden...</div>
+        </div>
+
+        <!-- Error message -->
+        <div id="errorMessage" class="hidden"></div>
+
+        <!-- Main content (hidden until data is loaded) -->
+        <div id="mainContent" class="hidden">
+          <div class="app-layout">
+            <aside class="sidebar">
+                <button class="sidebar-btn" id="cat-sales" onclick="switchCategory('sales')">Sales</button>
+                <button class="sidebar-btn active" id="cat-supply" onclick="switchCategory('supply')">Supply Chain</button>
+                <button class="sidebar-btn" id="cat-finance" onclick="switchCategory('finance')">Finance</button>
+            </aside>
+            <div class="app-main">
+
+            <!-- Tab navigation -->
+            <div class="tab-bar">
+                <button class="tab-btn active" data-tab="cogs" onclick="switchTab('cogs')">COGS Analyse</button>
+                <button class="tab-btn" data-tab="leverancier" onclick="switchTab('leverancier')">Leverancier Orders</button>
+                <button class="tab-btn" data-tab="stockcheck" onclick="switchTab('stockcheck')">Voorraad Check De Vries</button>
+                <button class="tab-btn" data-tab="pnl" onclick="switchTab('pnl')">P&amp;L</button>
+                <button class="tab-btn" data-tab="balance" onclick="switchTab('balance')">Balans</button>
+                <button class="tab-btn" data-tab="cashflow" onclick="switchTab('cashflow')">Cashflow</button>
+                <button class="tab-btn" data-tab="cfforecast" onclick="switchTab('cfforecast')">Cashflow Forecast</button>
+                <button class="tab-btn" data-tab="sales" onclick="switchTab('sales')">Omzet per klant</button>
+                <button class="tab-btn" data-tab="salesorders" onclick="switchTab('salesorders')">Sales orders</button>
+                <button class="tab-btn" data-tab="forecast" onclick="switchTab('forecast')">Forecast Accuracy</button>
+                <button class="tab-btn" data-tab="nieuwetab" onclick="switchTab('nieuwetab')">📦 Order Verwerking</button>
+                <button class="tab-btn" data-tab="ordersinbox" onclick="switchTab('ordersinbox')">📬 Orders Inbox</button>
+            </div>
+
+            <!-- ============ TAB: LEVERANCIER ============ -->
+            <div id="tab-leverancier" class="tab-content">
+
+            <!-- Stap 1: Leverancier kiezen -->
+            <div class="card">
+                <label for="supplierSelect">Leverancier</label>
+                <select id="supplierSelect">
+                    <option value="">-- Kies een leverancier --</option>
+                </select>
+            </div>
+
+            <!-- Status filters -->
+            <div id="filtersSection" class="card hidden">
+                <div class="section-header">
+                    <h2 class="section-title">Filter op status</h2>
+                    <div style="display:flex; gap:6px; flex-wrap:wrap;" id="statusFilters">
+                        <button class="btn-filter active" data-status="all" onclick="setFilter(this)">Alle</button>
+                        <button class="btn-filter" data-status="10" onclick="setFilter(this)">Gepland / Open</button>
+                        <button class="btn-filter" data-status="20" onclick="setFilter(this)">Vrijgegeven / Goedgekeurd</button>
+                        <button class="btn-filter" data-status="30" onclick="setFilter(this)">In uitvoering / Ontvangen</button>
+                        <button class="btn-filter" data-status="40" onclick="setFilter(this)">Gereed</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Werkorders -->
+            <div id="ordersSection" class="card hidden">
+                <div class="section-header">
+                    <h2 class="section-title">Werkorders <span id="orderCount" style="font-weight:400; color:#888; font-size:0.85rem;"></span></h2>
+                </div>
+                <div style="overflow-x:auto;">
+                    <table id="ordersTable">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Artikelcode</th>
+                                <th>Omschrijving</th>
+                                <th>Aantal</th>
+                                <th>Plandatum</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Bestellingen (Purchase Orders) -->
+            <div id="poSection" class="card hidden">
+                <div class="section-header">
+                    <h2 class="section-title">Bestellingen <span id="poCount" style="font-weight:400; color:#888; font-size:0.85rem;"></span></h2>
+                </div>
+                <div style="overflow-x:auto;">
+                    <table id="poTable">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Besteldatum</th>
+                                <th>Leverdatum</th>
+                                <th>Artikel</th>
+                                <th>Aantal</th>
+                                <th>Ontvangen</th>
+                                <th>Status</th>
+                                <th>Werkorder</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Werkorder detail -->
+            <div id="detailSection" class="card hidden">
+                <h2>Werkorder Details</h2>
+                <div class="info-grid" id="orderInfo"></div>
+
+                <h3>Grondstoffen</h3>
+                <div class="material-grid" id="grondstofGrid"></div>
+
+                <h3 style="margin-top:16px;">Folie</h3>
+                <div class="material-grid" id="folieGrid"></div>
+
+                <h3 style="margin-top:16px;">Dozen</h3>
+                <div class="material-grid" id="doosGrid"></div>
+
+                <div id="overigSection" class="hidden">
+                    <h3 style="margin-top:16px;">Overig</h3>
+                    <div class="material-grid" id="overigGrid"></div>
+                </div>
+            </div>
+
+            <!-- E-mail -->
+            <div id="emailSection" class="card hidden">
+                <h2>E-mail aan leverancier</h2>
+                <div style="margin-bottom:12px;">
+                    <label for="emailTo">Aan</label>
+                    <input type="email" id="emailTo" placeholder="email@leverancier.nl">
+                </div>
+                <div style="margin-bottom:12px;">
+                    <label for="emailSubject">Onderwerp</label>
+                    <input type="text" id="emailSubject" readonly>
+                </div>
+                <div>
+                    <label>Bericht</label>
+                    <div class="email-preview" id="emailBody"></div>
+                </div>
+                <div class="actions">
+                    <button class="btn btn-primary" onclick="copyEmail()">Kopieer naar klembord</button>
+                    <button class="btn btn-success" onclick="openMailClient()">Open in e-mail app</button>
+                </div>
+            </div>
+
+            </div><!-- /tab-leverancier -->
+
+            <!-- ============ TAB: COGS ANALYSE ============ -->
+            <div id="tab-cogs" class="tab-content active">
+
+                <!-- Summary cards -->
+                <div class="cogs-summary-cards" id="cogsSummaryCards"></div>
+
+                <!-- Filters -->
+                <div class="card">
+                    <div class="cogs-filters">
+                        <div class="filter-group">
+                            <label>Werkorders</label>
+                            <select id="cogsPeriod" onchange="renderCOGSTab()">
+                                <option value="3" selected>Laatste 3 maanden</option>
+                                <option value="6">Laatste 6 maanden</option>
+                                <option value="12">Laatste 12 maanden</option>
+                                <option value="all">Alle periodes</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Verkoopprijs</label>
+                            <select id="cogsPricePeriod" onchange="renderCOGSTab()">
+                                <option value="3">Laatste 3 maanden</option>
+                                <option value="6" selected>Laatste 6 maanden</option>
+                                <option value="12">Laatste 12 maanden</option>
+                                <option value="all">Alle periodes</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Groeperen</label>
+                            <select id="cogsGroupBy" onchange="renderCOGSTab()">
+                                <option value="none">Per product</option>
+                                <option value="group" selected>Per productgroep</option>
+                                <option value="lidl">Lidl producten</option>
+                                <option value="jc">Johnny Cashew</option>
+                                <option value="coated">JC Coated Club</option>
+                                <option value="udea">UDEA / Biologisch</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Kostenbasis</label>
+                            <select id="cogsCostBasis" onchange="renderCOGSTab()">
+                                <option value="actual">Alleen werkelijk</option>
+                                <option value="prefer_actual">Werkelijk, anders gepland</option>
+                                <option value="planned">Alleen gepland</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Klanten</label>
+                            <div class="cogs-customer-dropdown" id="cogsCustomerDropdown">
+                                <div class="cogs-customer-toggle" onclick="toggleCustomerPanel()">
+                                    <span id="cogsCustomerLabel">Alle klanten</span>
+                                </div>
+                                <div class="cogs-customer-panel" id="cogsCustomerPanel">
+                                    <input type="text" class="cogs-customer-search" id="cogsCustomerSearch"
+                                           placeholder="Zoek klant..." oninput="filterCustomerList()">
+                                    <div class="cogs-customer-actions">
+                                        <button onclick="toggleAllCustomers(true)">Alles aan</button>
+                                        <button onclick="toggleAllCustomers(false)">Alles uit</button>
+                                    </div>
+                                    <div id="cogsCustomerList"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Legend -->
+                <div class="cogs-legend">
+                    <div class="cogs-legend-item"><div class="cogs-legend-dot" style="background:#e67e22"></div> Cashew</div>
+                    <div class="cogs-legend-item"><div class="cogs-legend-dot" style="background:#d35400"></div> Roosteraar</div>
+                    <div class="cogs-legend-item"><div class="cogs-legend-dot" style="background:#6c3483"></div> Chocolateren</div>
+                    <div class="cogs-legend-item"><div class="cogs-legend-dot" style="background:#8e44ad"></div> Bewerking</div>
+                    <div class="cogs-legend-item"><div class="cogs-legend-dot" style="background:#3498db"></div> Folie</div>
+                    <div class="cogs-legend-item"><div class="cogs-legend-dot" style="background:#2ecc71"></div> Doos</div>
+                    <div class="cogs-legend-item"><div class="cogs-legend-dot" style="background:#95a5a6"></div> Overig</div>
+                </div>
+
+                <!-- Product table -->
+                <div class="card">
+                    <div style="overflow-x:auto;">
+                        <table id="cogsTable">
+                            <thead>
+                                <tr>
+                                    <th onclick="sortCOGS('itemCode')">Code</th>
+                                    <th onclick="sortCOGS('description')">Product</th>
+                                    <th onclick="sortCOGS('woCount')">WO's</th>
+                                    <th onclick="sortCOGS('avgCogs')">COGS/stuk</th>
+                                    <th style="min-width:150px">Opbouw</th>
+                                    <th onclick="sortCOGS('avgPrice')">Verkoopprijs</th>
+                                    <th onclick="sortCOGS('margin')">Bruto marge</th>
+                                    <th onclick="sortCOGS('trend')">Trend</th>
+                                    <th>Afwijking</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cogsTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Detail panel (shows when product is clicked) -->
+                <div id="cogsDetailSection" class="card hidden">
+                    <h2 id="cogsDetailTitle"></h2>
+                    <div class="info-grid" id="cogsDetailInfo"></div>
+
+                    <h3>Kostenopbouw</h3>
+                    <div id="cogsDetailBar"></div>
+                    <div id="cogsDetailBreakdown"></div>
+                    <div id="cogsDetailWarnings" class="hidden"></div>
+
+                    <h3 style="margin-top:16px;">Werkorder vergelijking</h3>
+                    <div style="overflow-x:auto;">
+                        <table class="cogs-wo-table" id="cogsWOTable">
+                            <thead>
+                                <tr>
+                                    <th>WO #</th>
+                                    <th>Datum</th>
+                                    <th>Aantal</th>
+                                    <th>COGS totaal</th>
+                                    <th>COGS/stuk</th>
+                                    <th>Cashew</th>
+                                    <th>Roosteraar</th>
+                                    <th>Chocolat.</th>
+                                    <th>Bewerking</th>
+                                    <th>Folie</th>
+                                    <th>Doos</th>
+                                    <th>Overig</th>
+                                    <th>Afwijking</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cogsWOTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div><!-- /tab-cogs -->
+
+            <!-- ============ TAB: VOORRAAD CHECK DE VRIES ============ -->
+            <div id="tab-stockcheck" class="tab-content">
+                <div class="card">
+                    <h2>Voorraad Check — De Vries</h2>
+                    <p style="color:#666;margin-top:4px;">Upload de voorraad-snapshot van De Vries (Excel). De datum wordt uit de bestandsnaam gehaald.</p>
+                    <div style="margin-top:12px;">
+                        <input type="file" id="devriesFile" accept=".xlsx,.xls,.csv" onchange="scLoadDeVriesFile(this.files[0])" />
+                    </div>
+                    <div id="scStatus" style="margin-top:8px;color:#888;font-size:13px;">Geen bestand geladen.</div>
+                </div>
+                <div id="scResults" style="display:none;">
+                    <div class="card">
+                        <div style="display:flex;justify-content:space-between;align-items:center;">
+                            <h3 id="scSummaryTitle">Samenvatting</h3>
+                            <button class="btn btn-primary" onclick="scDownloadExcel()" style="font-size:13px;padding:6px 16px;">Download Excel</button>
+                        </div>
+                        <div id="scSummary" style="margin-top:8px;"></div>
+                    </div>
+                    <div class="card">
+                        <h3>Verschillen per artikel</h3>
+                        <p style="color:#666;font-size:12px;margin-bottom:8px;">Artikelen die in beide systemen voorkomen maar met afwijkende aantallen.</p>
+                        <div style="overflow-x:auto;"><table id="scDiffTable" class="data-table" style="width:100%;font-size:13px;"></table></div>
+                    </div>
+                    <div class="card">
+                        <h3>Alleen bij De Vries (niet in Exact)</h3>
+                        <p style="color:#666;font-size:12px;margin-bottom:8px;">Artikelen die De Vries op voorraad heeft maar niet in Exact staan.</p>
+                        <div style="overflow-x:auto;"><table id="scOnlyDV" class="data-table" style="width:100%;font-size:13px;"></table></div>
+                    </div>
+                    <div class="card">
+                        <h3>Alleen in Exact (niet bij De Vries)</h3>
+                        <p style="color:#666;font-size:12px;margin-bottom:8px;">Artikelen die in Exact op voorraad staan maar niet in de De Vries-snapshot voorkomen.</p>
+                        <div style="overflow-x:auto;"><table id="scOnlyExact" class="data-table" style="width:100%;font-size:13px;"></table></div>
+                    </div>
+                </div>
+            </div><!-- /tab-stockcheck -->
+
+            <!-- ============ TAB: P&L ============ -->
+            <div id="tab-pnl" class="tab-content">
+                <!-- Password gate -->
+                <div id="pnlLock" class="card pnl-lock">
+                    <h2>P&amp;L — Beveiligd</h2>
+                    <p style="color:#666;margin-top:8px;">Voer het wachtwoord in om de P&amp;L te bekijken.</p>
+                    <input type="password" id="pnlPassword" placeholder="Wachtwoord" onkeydown="if(event.key==='Enter')pnlUnlock()">
+                    <button class="btn btn-primary" onclick="pnlUnlock()">Ontgrendel</button>
+                    <div class="pnl-lock-error" id="pnlLockError">Onjuist wachtwoord</div>
+                </div>
+                <!-- P&L content (hidden until unlocked) -->
+                <div id="pnlContent" style="display:none;">
+                <div class="card">
+                    <div class="pnl-filters">
+                        <div class="filter-group">
+                            <label>Jaar</label>
+                            <select id="pnlYear" onchange="renderPnLTab()"></select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Periode</label>
+                            <select id="pnlPeriod" onchange="renderPnLTab()">
+                                <option value="all" selected>Heel jaar (YTD)</option>
+                                <option value="1">Januari</option>
+                                <option value="2">Februari</option>
+                                <option value="3">Maart</option>
+                                <option value="4">April</option>
+                                <option value="5">Mei</option>
+                                <option value="6">Juni</option>
+                                <option value="7">Juli</option>
+                                <option value="8">Augustus</option>
+                                <option value="9">September</option>
+                                <option value="10">Oktober</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                        </div>
+                        <div class="filter-group" style="align-self:end;">
+                            <button class="btn btn-outline pnl-edit-btn" onclick="pnlToggleEditMode()" id="pnlEditToggle">Buckets bewerken</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div style="overflow-x:auto;">
+                        <table class="pnl-table" id="pnlTable">
+                            <thead>
+                                <tr>
+                                    <th style="min-width:220px;">P&amp;L</th>
+                                    <th class="pnl-amount">Bedrag</th>
+                                    <th class="pnl-pct">% omzet</th>
+                                </tr>
+                            </thead>
+                            <tbody id="pnlTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div><!-- /pnlContent -->
+            </div><!-- /tab-pnl -->
+
+            <!-- ============ TAB: BALANCE ============ -->
+            <div id="tab-balance" class="tab-content">
+                <div id="balLock" class="card pnl-lock">
+                    <h2>Balans — Beveiligd</h2>
+                    <p style="color:#666;margin-top:8px;">Voer het wachtwoord in om de balans te bekijken.</p>
+                    <input type="password" id="balPassword" placeholder="Wachtwoord" onkeydown="if(event.key==='Enter')balUnlock()">
+                    <button class="btn btn-primary" onclick="balUnlock()">Ontgrendel</button>
+                    <div class="pnl-lock-error" id="balLockError">Onjuist wachtwoord</div>
+                </div>
+                <div id="balContent" style="display:none;">
+                <div class="card">
+                    <div class="pnl-filters">
+                        <div class="filter-group">
+                            <label>Entiteit</label>
+                            <select id="balEntity" onchange="renderBalanceTab()">
+                                <option value="jc">Johnny Cashew Nederland BV</option>
+                                <option value="njanc">Not Just Another Nut Company BV</option>
+                                <option value="consol">Geconsolideerd</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Jaar</label>
+                            <select id="balYear" onchange="renderBalanceTab()"></select>
+                        </div>
+                        <div class="filter-group">
+                            <label>T/m periode</label>
+                            <select id="balPeriod" onchange="renderBalanceTab()">
+                                <option value="1">Januari</option>
+                                <option value="2">Februari</option>
+                                <option value="3">Maart</option>
+                                <option value="4">April</option>
+                                <option value="5">Mei</option>
+                                <option value="6">Juni</option>
+                                <option value="7">Juli</option>
+                                <option value="8">Augustus</option>
+                                <option value="9">September</option>
+                                <option value="10">Oktober</option>
+                                <option value="11">November</option>
+                                <option value="12" selected>December</option>
+                            </select>
+                        </div>
+                        <div class="filter-group" style="align-self:end;">
+                            <button class="btn btn-outline pnl-edit-btn" onclick="balToggleEditMode()" id="balEditToggle">Buckets bewerken</button>
+                        </div>
+                        <div class="filter-group" style="align-self:end;">
+                            <label style="display:flex;align-items:center;gap:6px;cursor:pointer;">
+                                <input type="checkbox" id="balShowReference" onchange="renderBalanceTab()"> Toon referentie 08-01-2026
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div style="overflow-x:auto;">
+                        <table class="pnl-table" id="balTable">
+                            <thead>
+                                <tr>
+                                    <th style="min-width:260px;">Balans</th>
+                                    <th class="pnl-amount">Bedrag</th>
+                                    <th class="pnl-amount" id="balRefHeader" style="display:none;">Ref 08-01-2026</th>
+                                    <th class="pnl-amount" id="balDiffHeader" style="display:none;">Verschil</th>
+                                </tr>
+                            </thead>
+                            <tbody id="balTableBody"></tbody>
+                        </table>
+                    </div>
+                    <div style="margin-top:10px;font-size:12px;color:#666;" id="balCheckInfo"></div>
+                </div>
+                </div><!-- /balContent -->
+            </div><!-- /tab-balance -->
+
+            <!-- ============ TAB: SALES (omzet per klant per week) ============ -->
+            <div id="tab-sales" class="tab-content">
+                <div class="card">
+                    <h2>Omzet per klant per week</h2>
+                    <div class="cf-filters" style="display:flex;flex-wrap:wrap;gap:12px;align-items:end;margin-top:12px;">
+                        <div class="filter-group">
+                            <label>Jaar</label>
+                            <select id="salesYear" onchange="renderSalesTab()"></select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Productgroep</label>
+                            <select id="salesGroup" onchange="renderSalesTab()">
+                                <option value="all" selected>Alle</option>
+                                <option value="lidl">Lidl producten</option>
+                                <option value="jc">Johnny Cashew</option>
+                                <option value="coated">JC Coated Club</option>
+                                <option value="udea">UDEA / Biologisch</option>
+                                <option value="other">Overig</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Klant</label>
+                            <select id="salesCustomer" onchange="renderSalesTab()">
+                                <option value="all" selected>Alle</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Periode</label>
+                            <select id="salesPeriod" onchange="renderSalesTab()">
+                                <option value="week" selected>Per week</option>
+                                <option value="month">Per maand</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Weergave</label>
+                            <button class="btn btn-outline" id="salesModeBtn" onclick="salesToggleMode()">Omzet (€)</button>
+                        </div>
+                        <div class="filter-group">
+                            <label>&nbsp;</label>
+                            <button class="btn btn-primary" onclick="salesDownloadCSV()">Download CSV</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="padding:0;">
+                    <div id="salesScrollTop" class="sales-scroll-top"><div id="salesScrollTopInner"></div></div>
+                    <div id="salesScrollWrap" class="sales-scroll-wrap">
+                    <table id="salesTable" class="sales-table">
+                        <thead id="salesTableHead"></thead>
+                        <tbody id="salesTableBody"></tbody>
+                        <tfoot id="salesTableFoot"></tfoot>
+                    </table>
+                    </div><!-- /salesScrollWrap -->
+                </div>
+            </div>
+
+            <!-- ============ TAB: SALES ORDERS ============ -->
+            <div id="tab-salesorders" class="tab-content">
+                <div class="card">
+                    <h2>Sales orders — komende 3 maanden</h2>
+                    <div class="cf-filters" style="display:flex;flex-wrap:wrap;gap:12px;align-items:end;margin-top:12px;">
+                        <div class="filter-group">
+                            <label>Productgroep</label>
+                            <select id="soGroup" onchange="renderSalesOrdersTab()">
+                                <option value="all" selected>Alle</option>
+                                <option value="lidl">Lidl producten</option>
+                                <option value="jc">Johnny Cashew</option>
+                                <option value="coated">JC Coated Club</option>
+                                <option value="udea">UDEA / Biologisch</option>
+                                <option value="other">Overig</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Klant</label>
+                            <select id="soCustomer" onchange="renderSalesOrdersTab()">
+                                <option value="all" selected>Alle</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Periode</label>
+                            <select id="soPeriod" onchange="renderSalesOrdersTab()">
+                                <option value="week" selected>Per week</option>
+                                <option value="month">Per maand</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Weergave</label>
+                            <button class="btn btn-outline" id="soModeBtn" onclick="salesOrdersToggleMode()">Omzet (€)</button>
+                        </div>
+                        <div class="filter-group">
+                            <label>&nbsp;</label>
+                            <button class="btn btn-primary" onclick="salesOrdersDownloadCSV()">Download CSV</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="padding:0;">
+                    <div id="soScrollTop" class="sales-scroll-top"><div id="soScrollTopInner"></div></div>
+                    <div id="soScrollWrap" class="sales-scroll-wrap">
+                    <table id="soTable" class="sales-table">
+                        <thead id="soTableHead"></thead>
+                        <tbody id="soTableBody"></tbody>
+                        <tfoot id="soTableFoot"></tfoot>
+                    </table>
+                    </div><!-- /soScrollWrap -->
+                </div>
+            </div>
+
+            <!-- ============ TAB: FORECAST ACCURACY ============ -->
+            <div id="tab-forecast" class="tab-content">
+                <div class="card">
+                    <h2>Forecast Accuracy</h2>
+                    <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:end;margin-top:12px;">
+                        <div class="filter-group">
+                            <label>Forecast bestand</label>
+                            <input type="file" id="forecastFileInput" accept=".xlsx,.xls" style="display:none" onchange="forecastLoadFile(this.files[0])">
+                            <button class="btn btn-primary" onclick="document.getElementById('forecastFileInput').click()">Forecast bestand inladen (.xlsx)</button>
+                        </div>
+                        <div class="filter-group" style="flex:1;min-width:200px;">
+                            <label>Status</label>
+                            <div id="forecastStatus" style="padding:8px;color:#666;">Geen forecast geladen</div>
+                        </div>
+                        <div class="filter-group">
+                            <label>&nbsp;</label>
+                            <button class="btn btn-outline" onclick="forecastClear()">Wissen</button>
+                        </div>
+                    </div>
+                    <div class="cf-filters" style="display:flex;flex-wrap:wrap;gap:12px;align-items:end;margin-top:12px;">
+                        <div class="filter-group">
+                            <label>Merk</label>
+                            <select id="forecastBrand" onchange="renderForecastTab()">
+                                <option value="all" selected>Alle</option>
+                                <option value="JC">Johnny Cashew</option>
+                                <option value="PL">Private Label</option>
+                                <option value="Upcycle">Upcycle</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Klant</label>
+                            <select id="forecastCustomer" onchange="renderForecastTab()">
+                                <option value="all" selected>Alle</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Periode</label>
+                            <select id="forecastPeriod" onchange="renderForecastTab()">
+                                <option value="13">Laatste 13 weken</option>
+                                <option value="26" selected>Laatste 26 weken</option>
+                                <option value="ytd">YTD</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Metric</label>
+                            <button class="btn btn-outline" id="forecastMetricBtn" onclick="forecastToggleMetric()">Omzet (€)</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 style="margin-bottom:12px;">KPI's</h3>
+                    <div id="forecastKpis" style="display:flex;flex-wrap:wrap;gap:12px;"></div>
+                </div>
+                <div class="card" style="padding:0;">
+                    <h3 style="padding:16px 16px 0 16px;">Bias per klant</h3>
+                    <div class="sales-scroll-wrap">
+                    <table id="forecastBiasTable" class="sales-table">
+                        <thead id="forecastBiasHead"></thead>
+                        <tbody id="forecastBiasBody"></tbody>
+                    </table>
+                    </div>
+                </div>
+                <div class="card" style="padding:0;">
+                    <h3 style="padding:16px 16px 0 16px;">Accuracy heatmap (top 15 klanten)</h3>
+                    <div class="sales-scroll-wrap">
+                    <table id="forecastHeatTable" class="sales-table">
+                        <thead id="forecastHeatHead"></thead>
+                        <tbody id="forecastHeatBody"></tbody>
+                    </table>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 style="margin-bottom:12px;">Trend forecast vs actual</h3>
+                    <div id="forecastTrendChart"></div>
+                </div>
+                <div class="card">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                        <h3 style="margin:0;">Klant mapping</h3>
+                        <button class="btn btn-outline" onclick="forecastAutoMap()">Auto-koppel</button>
+                    </div>
+                    <p style="color:#666;font-size:13px;margin-top:0;">Koppel forecast-namen aan klantnamen uit de database. Een groene stip geeft aan dat de mapping is gemaakt.</p>
+                    <div id="forecastMappingList"></div>
+                </div>
+            </div>
+
+            <!-- ============ TAB: CASHFLOW ============ -->
+            <div id="tab-cashflow" class="tab-content">
+                <!-- Password gate (same as P&L) -->
+                <div id="cfLock" class="card cf-lock">
+                    <h2>Cashflow — Beveiligd</h2>
+                    <p style="color:#666;margin-top:8px;">Voer het wachtwoord in om de cashflow te bekijken.</p>
+                    <input type="password" id="cfPassword" placeholder="Wachtwoord" onkeydown="if(event.key==='Enter')cfUnlock()">
+                    <button class="btn btn-primary" onclick="cfUnlock()">Ontgrendel</button>
+                    <div class="cf-lock-error" id="cfLockError">Onjuist wachtwoord</div>
+                </div>
+                <!-- Cashflow content (hidden until unlocked) -->
+                <div id="cfContent" style="display:none;">
+                    <div class="card">
+                        <div class="cf-filters">
+                            <div class="filter-group">
+                                <label>Van</label>
+                                <select id="cfFromYear"></select>
+                            </div>
+                            <div class="filter-group">
+                                <label>&nbsp;</label>
+                                <select id="cfFromPeriod"></select>
+                            </div>
+                            <div class="filter-group">
+                                <label>Tot</label>
+                                <select id="cfToYear"></select>
+                            </div>
+                            <div class="filter-group">
+                                <label>&nbsp;</label>
+                                <select id="cfToPeriod"></select>
+                            </div>
+                            <div class="filter-group" style="align-self:end;">
+                                <button class="btn btn-primary" onclick="renderCashflowTab()">Toepassen</button>
+                            </div>
+                            <div class="filter-group">
+                                <label>Weergave</label>
+                                <select id="cfViewMode" onchange="renderCashflowTab()">
+                                    <option value="weekly" selected>Wekelijks</option>
+                                    <option value="monthly">Maandelijks</option>
+                                    <option value="quarterly">Kwartaal</option>
+                                    <option value="yearly">Jaarlijks</option>
+                                </select>
+                            </div>
+                            <div class="filter-group" style="align-self:end;">
+                                <button class="btn btn-outline cf-toggle-btn" id="cfToggleBars" onclick="cfToggleBars()">In/Uit tonen</button>
+                            </div>
+                            <div class="filter-group" style="align-self:end; position:relative;">
+                                <button class="btn btn-outline" onclick="cfShowDownloadMenu()" id="cfDownloadBtn">⬇ Download CSV</button>
+                                <div id="cfDownloadMenu" class="cf-download-menu" style="display:none;">
+                                    <div class="cf-download-title">Welk detailniveau?</div>
+                                    <button onclick="cfDownloadCSV('daily')">Dagelijks</button>
+                                    <button onclick="cfDownloadCSV('weekly')">Wekelijks</button>
+                                    <button onclick="cfDownloadCSV('monthly')">Maandelijks</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Summary cards -->
+                    <div class="cf-summary-grid" id="cfSummaryGrid"></div>
+
+                    <!-- Chart -->
+                    <div class="card">
+                        <div class="cf-chart-wrap">
+                            <canvas id="cfChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Table -->
+                    <div class="card">
+                        <div style="overflow-x:auto;">
+                            <table class="cf-table" id="cfTable">
+                                <thead id="cfTableHead"></thead>
+                                <tbody id="cfTableBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /tab-cashflow -->
+
+            <!-- ============ TAB: CASHFLOW FORECAST ============ -->
+            <div id="tab-cfforecast" class="tab-content">
+                <div id="cffLock" class="card pnl-lock">
+                    <h2>Cashflow Forecast — Beveiligd</h2>
+                    <p style="color:#666;margin-top:8px;">Voer het wachtwoord in.</p>
+                    <input type="password" id="cffPassword" placeholder="Wachtwoord" onkeydown="if(event.key==='Enter')cffUnlock()">
+                    <button class="btn btn-primary" onclick="cffUnlock()">Ontgrendel</button>
+                    <div class="pnl-lock-error" id="cffLockError">Onjuist wachtwoord</div>
+                </div>
+                <div id="cffContent" style="display:none;">
+
+                    <!-- ====== SANITY BAR (always visible, collapsed by default) ====== -->
+                    <div class="cff-sanity-bar" id="cffSanityBar" onclick="this.classList.toggle('open')">
+                        <div class="cff-sanity-summary" id="cffSanitySummary">
+                            <span style="color:#999;">Forecast model — checks laden...</span>
+                        </div>
+                        <div class="cff-sanity-details" id="cffSanityDetails"></div>
+                    </div>
+
+                    <!-- Hidden file inputs -->
+                    <input type="file" id="cffFileInput" accept=".xlsx,.xls" style="display:none" onchange="cffLoadFile(this.files[0])">
+                    <input type="file" id="cffSalesFileInput" accept=".xlsx,.xls" style="display:none" onchange="cffLoadSalesFile(this.files[0])">
+
+                    <!-- ====== BRONDATA ====== -->
+                    <div class="cff-group-label">Brondata</div>
+
+                    <div class="cff-acc" id="cffAccSales">
+                        <div class="cff-acc-head" onclick="cffAccToggle('cffAccSales')">
+                            <span class="cff-acc-dot grey" id="cffDotSales"></span>
+                            <span class="cff-acc-title">Sales Forecast</span>
+                            <span class="cff-acc-hint" id="cffHintSales"></span>
+                            <svg class="cff-acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                        </div>
+                        <div class="cff-acc-body"><div class="cff-acc-inner">
+                            <p style="color:#666;font-size:13px;margin:0 0 8px;">Upload de "FORECAST PER KLANT" xlsx. Per artikelnummer worden volumes en omzet per week ingelezen.</p>
+                            <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+                                <button class="btn btn-primary" onclick="document.getElementById('cffSalesFileInput').click()">Sales forecast uploaden</button>
+                                <button class="btn btn-outline" onclick="cffClearSales()" id="cffSalesClearBtn" style="display:none;">Verwijderen</button>
+                                <span id="cffSalesStatus" style="color:#666;font-size:13px;"></span>
+                            </div>
+                            <div id="cffSalesError" style="color:#c53030;margin-top:8px;display:none;"></div>
+                            <div id="cffSalesPreview" style="margin-top:12px;"></div>
+                        </div></div>
+                    </div>
+
+                    <div class="cff-acc" id="cffAccInkoop">
+                        <div class="cff-acc-head" onclick="cffAccToggle('cffAccInkoop')">
+                            <span class="cff-acc-dot grey" id="cffDotInkoop"></span>
+                            <span class="cff-acc-title">Inkoop &amp; Werkorders</span>
+                            <span class="cff-acc-hint" id="cffHintInkoop"></span>
+                            <svg class="cff-acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                        </div>
+                        <div class="cff-acc-body"><div class="cff-acc-inner">
+                            <p style="color:#666;font-size:13px;margin:0 0 8px;">
+                                Plak de waarden uit de Cashewflow-sheet (rij 78), horizontaal vanaf de huidige week.
+                            </p>
+                            <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:8px;">
+                                <label>Startweek:
+                                    <input type="number" id="cffPasteWeek" min="1" max="53" style="width:60px;">
+                                    -
+                                    <input type="number" id="cffPasteYear" min="2024" max="2030" style="width:80px;">
+                                </label>
+                                <label>Eenheid:
+                                    <select id="cffPasteUnit">
+                                        <option value="k">k€ (×1000)</option>
+                                        <option value="e">€</option>
+                                    </select>
+                                </label>
+                                <label><input type="checkbox" id="cffPasteFlip"> Tekens omdraaien</label>
+                                <button class="btn btn-primary" onclick="cffPasteInkoop()">Toevoegen</button>
+                            </div>
+                            <textarea id="cffPasteArea" rows="2" style="width:100%;font-family:monospace;font-size:12px;" placeholder="-87.5  -92.1  -45.0  -110.3  ..."></textarea>
+                            <div id="cffPasteError" style="color:#c53030;margin-top:6px;display:none;"></div>
+                            <div id="cffPasteOk" style="color:#2f855a;margin-top:6px;display:none;"></div>
+                            <div style="margin-top:10px;">
+                                <span id="cffStatus" style="color:#666;font-size:13px;"></span>
+                                <button class="btn btn-outline" onclick="cffClearData()" id="cffClearBtn" style="display:none;margin-left:8px;font-size:12px;">Wissen</button>
+                            </div>
+                            <div id="cffLoadError" style="color:#c53030;margin-top:8px;display:none;"></div>
+                            <div id="cffPreview" style="color:#666;margin-top:8px;"></div>
+                        </div></div>
+                    </div>
+
+                    <!-- ====== OPERATIONELE KASSTROOM ====== -->
+                    <div class="cff-group-label">Operationele kasstroom</div>
+
+                    <div class="cff-acc" id="cffAccDso">
+                        <div class="cff-acc-head" onclick="cffAccToggle('cffAccDso')">
+                            <span class="cff-acc-dot grey" id="cffDotDso"></span>
+                            <span class="cff-acc-title">DSO — betaaltermijn klanten</span>
+                            <span class="cff-acc-hint" id="cffHintDso"></span>
+                            <svg class="cff-acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                        </div>
+                        <div class="cff-acc-body"><div class="cff-acc-inner">
+                            <p style="color:#666;font-size:13px;margin:0 0 8px;">
+                                Gewogen gemiddelde betaaltermijn per klant, berekend uit <code>DueDate − InvoiceDate</code> (laatste 12 mnd). Override per klant mogelijk.
+                            </p>
+                            <div id="cffDsoPanel" style="color:#666;">Laden...</div>
+                        </div></div>
+                    </div>
+
+                    <div class="cff-acc" id="cffAccDpo">
+                        <div class="cff-acc-head" onclick="cffAccToggle('cffAccDpo')">
+                            <span class="cff-acc-dot grey" id="cffDotDpo"></span>
+                            <span class="cff-acc-title">DPO — betaaltermijn leveranciers</span>
+                            <span class="cff-acc-hint" id="cffHintDpo"></span>
+                            <svg class="cff-acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                        </div>
+                        <div class="cff-acc-body"><div class="cff-acc-inner">
+                            <div id="cffDpoPanel" style="color:#666;">Laden...</div>
+                        </div></div>
+                    </div>
+
+                    <div class="cff-acc" id="cffAccOpex">
+                        <div class="cff-acc-head" onclick="cffAccToggle('cffAccOpex')">
+                            <span class="cff-acc-dot grey" id="cffDotOpex"></span>
+                            <span class="cff-acc-title">Bedrijfskosten (OPEX)</span>
+                            <span class="cff-acc-hint" id="cffHintOpex"></span>
+                            <svg class="cff-acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                        </div>
+                        <div class="cff-acc-body"><div class="cff-acc-inner">
+                            <p style="color:#666;font-size:13px;margin:0 0 8px;">
+                                Vaste lasten per categorie. "Seed uit P&amp;L" vult automatisch op basis van gemiddelde uitgaven laatste 12 maanden.
+                            </p>
+                            <div style="display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap;">
+                                <button class="btn btn-outline" onclick="cffOpexSeedFromPnl()">Seed uit P&amp;L</button>
+                                <button class="btn btn-primary" onclick="cffOpexAdd()">+ Post toevoegen</button>
+                                <button class="btn btn-outline" onclick="cffOpexClearAll()" style="color:#c53030;">Wissen</button>
+                            </div>
+                            <div id="cffOpexTable"></div>
+                        </div></div>
+                    </div>
+
+                    <div class="cff-acc" id="cffAccBtw">
+                        <div class="cff-acc-head" onclick="cffAccToggle('cffAccBtw')">
+                            <span class="cff-acc-dot grey" id="cffDotBtw"></span>
+                            <span class="cff-acc-title">BTW — kwartaalafdracht</span>
+                            <span class="cff-acc-hint" id="cffHintBtw"></span>
+                            <svg class="cff-acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                        </div>
+                        <div class="cff-acc-body"><div class="cff-acc-inner">
+                            <div id="cffBtwPanel" style="color:#666;">Laden...</div>
+                        </div></div>
+                    </div>
+
+                    <div class="cff-acc" id="cffAccWc">
+                        <div class="cff-acc-head" onclick="cffAccToggle('cffAccWc')">
+                            <span class="cff-acc-dot grey" id="cffDotWc"></span>
+                            <span class="cff-acc-title">Werkkapitaal — openstaande posities</span>
+                            <span class="cff-acc-hint" id="cffHintWc"></span>
+                            <svg class="cff-acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                        </div>
+                        <div class="cff-acc-body"><div class="cff-acc-inner">
+                            <div id="cffWcPanel" style="color:#666;">Laden...</div>
+                        </div></div>
+                    </div>
+
+                    <!-- ====== INVESTERINGSKASSTROOM ====== -->
+                    <div class="cff-group-label">Investeringskasstroom</div>
+
+                    <div class="cff-acc" id="cffAccEvents">
+                        <div class="cff-acc-head" onclick="cffAccToggle('cffAccEvents')">
+                            <span class="cff-acc-dot grey" id="cffDotEvents"></span>
+                            <span class="cff-acc-title">CAPEX &amp; eenmalige events</span>
+                            <span class="cff-acc-hint" id="cffHintEvents"></span>
+                            <svg class="cff-acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                        </div>
+                        <div class="cff-acc-body"><div class="cff-acc-inner">
+                            <div style="display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap;">
+                                <button class="btn btn-outline" onclick="cffEventsAdd('capex')">+ CAPEX (uit)</button>
+                                <button class="btn btn-outline" onclick="cffEventsAdd('equity')">+ Aandelenuitgifte (in)</button>
+                                <button class="btn btn-outline" onclick="cffEventsAdd('other')">+ Overig</button>
+                            </div>
+                            <div id="cffEventsTable" style="color:#666;">Laden...</div>
+                        </div></div>
+                    </div>
+
+                    <!-- ====== FINANCIERINGSKASSTROOM ====== -->
+                    <div class="cff-group-label">Financieringskasstroom</div>
+
+                    <div class="cff-acc" id="cffAccLoans">
+                        <div class="cff-acc-head" onclick="cffAccToggle('cffAccLoans')">
+                            <span class="cff-acc-dot grey" id="cffDotLoans"></span>
+                            <span class="cff-acc-title">Leningen &amp; financiering</span>
+                            <span class="cff-acc-hint" id="cffHintLoans"></span>
+                            <svg class="cff-acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                        </div>
+                        <div class="cff-acc-body"><div class="cff-acc-inner">
+                            <div style="display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap;">
+                                <button class="btn btn-outline" onclick="cffLoansAdd()">+ Lening toevoegen</button>
+                                <button class="btn btn-outline" onclick="cffLoansSeedFromPnl()">Seed uit balans + P&amp;L</button>
+                            </div>
+                            <div id="cffLoansTable" style="color:#666;">Laden...</div>
+                        </div></div>
+                    </div>
+
+                    <!-- ====== KASPOSITIE ====== -->
+                    <div class="cff-group-label">Kaspositie</div>
+
+                    <div class="cff-acc" id="cffAccCash">
+                        <div class="cff-acc-head" onclick="cffAccToggle('cffAccCash')">
+                            <span class="cff-acc-dot grey" id="cffDotCash"></span>
+                            <span class="cff-acc-title">Startsaldo &amp; horizon</span>
+                            <span class="cff-acc-hint" id="cffHintCash"></span>
+                            <svg class="cff-acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                        </div>
+                        <div class="cff-acc-body"><div class="cff-acc-inner">
+                            <div id="cffCashPanel" style="color:#666;">Laden...</div>
+                        </div></div>
+                    </div>
+
+                    <div class="cff-acc" id="cffAccStock">
+                        <div class="cff-acc-head" onclick="cffAccToggle('cffAccStock')">
+                            <span class="cff-acc-dot grey" id="cffDotStock"></span>
+                            <span class="cff-acc-title">Voorraad — lead time &amp; mutaties</span>
+                            <span class="cff-acc-hint" id="cffHintStock"></span>
+                            <svg class="cff-acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                        </div>
+                        <div class="cff-acc-body"><div class="cff-acc-inner">
+                            <div id="cffStockPanel" style="color:#666;">Laden...</div>
+                        </div></div>
+                    </div>
+
+                    <!-- ====== OUTPUT (always visible) ====== -->
+                    <div class="cff-group-label">Forecast output</div>
+
+                    <div id="cffSanity" style="display:none;"></div>
+                    <div class="card">
+                        <div id="cffModelTotals" style="font-size:13px;color:#666;margin-bottom:8px;"></div>
+                        <div id="cffModelTable" style="color:#666;">Nog geen model gebouwd.</div>
+                    </div>
+                    <div class="card">
+                        <div id="cffChartWrap" style="position:relative;height:350px;">
+                            <canvas id="cffCashChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /tab-cfforecast -->
+
+            <!-- P&L mismatch popup -->
+            <div id="pnlMismatchOverlay" class="pnl-mismatch-overlay" style="display:none;">
+                <div class="pnl-mismatch-popup">
+                    <h3>Niet-toegewezen grootboekrekeningen</h3>
+                    <p style="color:#666;margin-bottom:12px;">Deze rekeningen komen voor in de data maar zijn niet gekoppeld aan een bucket.</p>
+                    <table id="pnlMismatchTable">
+                        <thead><tr><th>Code</th><th>Omschrijving</th><th>Bedrag</th><th>Bucket</th></tr></thead>
+                        <tbody id="pnlMismatchBody"></tbody>
+                    </table>
+                    <div style="display:flex;gap:8px;margin-top:16px;">
+                        <button class="btn btn-primary" onclick="pnlSaveMismatchAssignments()">Opslaan</button>
+                        <button class="btn btn-outline" onclick="pnlCloseMismatch()">Sluiten</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============ TAB: NIEUWE TAB ============ -->
+            <div id="tab-nieuwetab" class="tab-content">
+                <div id="nieuweTabContent"></div>
+            </div>
+
+            <!-- ============ TAB: ORDERS INBOX ============ -->
+            <div id="tab-ordersinbox" class="tab-content">
+                <div id="ordersInboxContent"></div>
+            </div>
+
+            </div><!-- /app-main -->
+          </div><!-- /app-layout -->
+        </div>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+name: Nightly Exact Online Sync
+
+on:
+  schedule:
+    - cron: '0 1 * * *'  # 01:00 UTC = 03:00 CET
+  workflow_dispatch:       # handmatig starten via GitHub UI
+
+permissions:
+  contents: write
+
+env:
+  NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+  NETLIFY_SITE_ID: 2b984e56-65b9-4303-8346-d01ff621d962
+  NETLIFY_ACCOUNT_ID: 69c6e128f54d546c99ff0500
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Restore tokens & credentials from Netlify
+        run: |
+          python3 << 'PYEOF'
+          import requests, json, os
+
+          TOKEN = os.environ["NETLIFY_TOKEN"]
+          ACCOUNT = os.environ["NETLIFY_ACCOUNT_ID"]
+          SITE = os.environ["NETLIFY_SITE_ID"]
+          API = "https://api.netlify.com/api/v1"
+          headers = {"Authorization": f"Bearer {TOKEN}"}
+
+          # Fetch all env vars for this site
+          resp = requests.get(f"{API}/accounts/{ACCOUNT}/env?site_id={SITE}", headers=headers)
+          resp.raise_for_status()
+          env_vars = {v["key"]: v["values"][0]["value"] for v in resp.json() if v.get("values")}
+
+          # Write .env
+          with open("tools/.env", "w") as f:
+              f.write(f'EXACT_CLIENT_ID={env_vars["EXACT_CLIENT_ID"]}\n')
+              f.write(f'EXACT_CLIENT_SECRET={env_vars["EXACT_CLIENT_SECRET"]}\n')
+              f.write(f'EXACT_DIVISION={env_vars["EXACT_DIVISION"]}\n')
+              f.write(f'NETLIFY_TOKEN={TOKEN}\n')
+              f.write(f'NETLIFY_SITE_ID={SITE}\n')
+          os.chmod("tools/.env", 0o600)
+
+          # Write tokens
+          tokens = env_vars.get("EXACT_TOKENS_JSON", "")
+          if tokens:
+              with open("tools/.tokens.json", "w") as f:
+                  f.write(tokens)
+              os.chmod("tools/.tokens.json", 0o600)
+              print("Tokens & credentials restored from Netlify")
+          else:
+              print("ERROR: No tokens found in Netlify env vars")
+              exit(1)
+
+          # Write incremental sync state (optioneel — als afwezig doet sync een full)
+          state = env_vars.get("EXACT_SYNC_STATE", "")
+          if state:
+              with open("tools/.sync_state.json", "w") as f:
+                  f.write(state)
+              print(f"Sync state restored ({len(state)} bytes) — incremental run")
+          else:
+              print("No sync state in Netlify — first run will be full")
+          PYEOF
+
+      - name: Restore dataset from live site (voor incremental merge)
+        run: |
+          # Incremental sync mergt nieuwe records in bestaande dataset.json.
+          # Op een verse runner is die er niet — download van live Netlify site.
+          if [ -f tools/.sync_state.json ]; then
+            echo "Downloading existing dataset.json from live site..."
+            curl -fsSL https://leverancier-order-tool.netlify.app/dataset.json -o tools/dataset.json && \
+              echo "Dataset downloaded ($(du -h tools/dataset.json | cut -f1))" || \
+              echo "Download failed — sync zal full draaien"
+          fi
+
+      - name: Run sync
+        run: cd tools && python3 exact_sync.py
+
+      - name: Save updated tokens to Netlify
+        if: always()
+        run: |
+          python3 << 'PYEOF'
+          import requests, json, os
+
+          if not os.path.exists("tools/.tokens.json"):
+              print("No tokens file to save")
+              exit(0)
+
+          TOKEN = os.environ["NETLIFY_TOKEN"]
+          ACCOUNT = os.environ["NETLIFY_ACCOUNT_ID"]
+          SITE = os.environ["NETLIFY_SITE_ID"]
+          API = "https://api.netlify.com/api/v1"
+          headers = {"Authorization": f"Bearer {TOKEN}", "Content-Type": "application/json"}
+
+          tokens = open("tools/.tokens.json").read().strip()
+
+          # Update existing env var via PUT (PATCH returns 422)
+          resp = requests.put(
+              f"{API}/accounts/{ACCOUNT}/env/EXACT_TOKENS_JSON?site_id={SITE}",
+              headers=headers,
+              json={"key": "EXACT_TOKENS_JSON", "scopes": ["builds", "functions", "runtime", "post_processing"], "values": [{"value": tokens, "context": "all"}]}
+          )
+
+          if resp.ok:
+              print("Tokens saved to Netlify")
+          else:
+              # Try create instead
+              resp2 = requests.post(
+                  f"{API}/accounts/{ACCOUNT}/env?site_id={SITE}",
+                  headers=headers,
+                  json=[{"key": "EXACT_TOKENS_JSON", "values": [{"value": tokens, "context": "all"}]}]
+              )
+              if resp2.ok:
+                  print("Tokens created on Netlify")
+              else:
+                  print(f"Failed to save tokens: {resp2.status_code}")
+                  exit(1)
+          PYEOF
+
+      - name: Commit & push dataset
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -f tools/dataset.json
+          git diff --cached --quiet || git commit -m "chore: nightly dataset sync [skip ci]"
+          git push
+
+      - name: Deploy to Netlify
+        if: success()
+        run: |
+          npm install -g netlify-cli
+          netlify deploy --prod --dir=tools --site=$NETLIFY_SITE_ID --auth=$NETLIFY_TOKEN --message="Nightly sync deploy"
+
+      - name: Save sync state to Netlify
+        if: success()
+        run: |
+          python3 << 'PYEOF'
+          import requests, os
+
+          if not os.path.exists("tools/.sync_state.json"):
+              print("No sync state to save")
+              exit(0)
+
+          TOKEN = os.environ["NETLIFY_TOKEN"]
+          ACCOUNT = os.environ["NETLIFY_ACCOUNT_ID"]
+          SITE = os.environ["NETLIFY_SITE_ID"]
+          API = "https://api.netlify.com/api/v1"
+          headers = {"Authorization": f"Bearer {TOKEN}", "Content-Type": "application/json"}
+
+          state = open("tools/.sync_state.json").read().strip()
+
+          resp = requests.put(
+              f"{API}/accounts/{ACCOUNT}/env/EXACT_SYNC_STATE?site_id={SITE}",
+              headers=headers,
+              json={"key": "EXACT_SYNC_STATE", "scopes": ["builds", "functions", "runtime", "post_processing"], "values": [{"value": state, "context": "all"}]}
+          )
+          if resp.ok:
+              print(f"Sync state saved to Netlify ({len(state)} bytes)")
+          else:
+              resp2 = requests.post(
+                  f"{API}/accounts/{ACCOUNT}/env?site_id={SITE}",
+                  headers=headers,
+                  json=[{"key": "EXACT_SYNC_STATE", "values": [{"value": state, "context": "all"}]}]
+              )
+              if resp2.ok:
+                  print("Sync state created on Netlify")
+              else:
+                  print(f"Failed to save sync state: {resp.status_code} / {resp2.status_code}")
+          PYEOF

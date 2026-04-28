@@ -13,14 +13,15 @@ const crypto = require('crypto');
 // ── Helpers ───────────────────────────────────────────────────────────────────
 function validateHMAC(payload, signature, secret) {
     if (!secret) return true; // Skip during local dev if secret not set
+    if (!signature) return false;
     const expected = crypto
         .createHmac('sha256', secret)
         .update(payload)
         .digest('hex');
-    return crypto.timingSafeEqual(
-        Buffer.from(signature || '', 'hex'),
-        Buffer.from(expected, 'hex')
-    );
+    const sigBuffer = Buffer.from(signature, 'hex');
+    const expBuffer = Buffer.from(expected, 'hex');
+    if (sigBuffer.length !== expBuffer.length) return false;
+    return crypto.timingSafeEqual(sigBuffer, expBuffer);
 }
 
 function generateOrderId(messageId) {

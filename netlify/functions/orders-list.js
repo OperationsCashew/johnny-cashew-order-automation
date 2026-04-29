@@ -17,6 +17,8 @@ exports.handler = async () => {
             headers: { 'X-Access-Key': accessKey }
         });
         const data = await res.json();
+        console.log('JSONBin status:', res.status);
+        console.log('JSONBin data:', JSON.stringify(data).substring(0, 500));
         const orders = Array.isArray(data.record)
             ? data.record.filter(o => o && !o.init)
             : [];

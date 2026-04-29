@@ -149,6 +149,7 @@ exports.handler = async (event) => {
             });
 
             const claudeData = await claudeRes.json();
+            console.log(`🤖 Claude raw response: ${JSON.stringify(claudeData).substring(0, 500)}`);
             const rawText = claudeData.content?.[0]?.text || '{}';
 
             // Strip markdown code blocks if present

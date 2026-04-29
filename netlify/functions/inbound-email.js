@@ -108,6 +108,7 @@ exports.handler = async (event) => {
     const timestamp = new Date().toISOString();
 
     console.log(`📧 Mail ontvangen van ${emailFrom} | Subject: "${emailSubject}" | Order ID: ${orderId}`);
+    console.log(`📄 Email body (eerste 300 tekens): ${emailBody.substring(0, 300)}`);
 
     // ── 3. Dedupe check op Message-ID ─────────────────────────────────────────
     // (Netlify Blobs / file storage is niet beschikbaar in Functions,

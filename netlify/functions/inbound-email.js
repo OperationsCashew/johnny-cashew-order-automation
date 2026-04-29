@@ -192,16 +192,32 @@ exports.handler = async (event) => {
         bookedAt: null,
     };
 
-    // Sla op via Netlify Blobs (beschikbaar in Netlify Functions runtime)
+    // Sla op via JSONBin
     try {
-        const { getStore } = await import('@netlify/blobs');
-        const store = getStore('orders-inbox');
-        await store.setJSON(`${timestamp}_${orderId}`, orderRecord);
-        console.log(`💾 Order opgeslagen in Netlify Blobs: ${timestamp}_${orderId}`);
-    } catch (blobErr) {
-        // Netlify Blobs niet beschikbaar (lokale dev) — log de order JSON
+        const binId = process.env.JSONBIN_BIN_ID;
+        const accessKey = process.env.JSONBIN_ACCESS_KEY;
+        if (!binId || !accessKey) throw new Error('JSONBIN_BIN_ID of JSONBIN_ACCESS_KEY niet ingesteld');
+
+        // Haal huidige orders op
+        const getRes = await fetch(`https://api.jsonbin.io/v3/b/${binId}/latest`, {
+            headers: { 'X-Access-Key': accessKey }
+        });
+        const getData = await getRes.json();
+        const current = Array.isArray(getData.record) ? getData.record.filter(o => o && !o.init) : [];
+
+        // Voeg nieuwe order toe
+        current.unshift(orderRecord);
+
+        // Sla op
+        await fetch(`https://api.jsonbin.io/v3/b/${binId}`, {
+            method: 'PUT',
+            headers: { 'X-Access-Key': accessKey, 'Content-Type': 'application/json' },
+            body: JSON.stringify(current)
+        });
+        console.log(`💾 Order opgeslagen in JSONBin: ${orderId}`);
+    } catch (err) {
         console.log('📋 ORDER_JSON_FALLBACK:', JSON.stringify(orderRecord));
-        console.warn('Netlify Blobs niet beschikbaar:', blobErr.message);
+        console.warn('JSONBin opslag mislukt:', err.message);
     }
 
     // ── 6. Antwoord aan CloudMailin ───────────────────────────────────────────

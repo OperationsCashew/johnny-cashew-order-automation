@@ -1,5 +1,4 @@
-// === Orders List — leest orders uit Netlify Blobs ===
-// Wordt aangeroepen door de Orders Inbox tab in het dashboard.
+// === Orders List — leest orders uit JSONBin ===
 
 const headers = {
     'Access-Control-Allow-Origin': '*',
@@ -8,40 +7,23 @@ const headers = {
     'Content-Type': 'application/json',
 };
 
-exports.handler = async (event) => {
-    if (event.httpMethod === 'OPTIONS') return { statusCode: 200, headers, body: '' };
-
+exports.handler = async () => {
     try {
-        const { getStore } = await import('@netlify/blobs');
-        const store = getStore('orders-inbox');
+        const binId = process.env.JSONBIN_BIN_ID;
+        const accessKey = process.env.JSONBIN_ACCESS_KEY;
+        if (!binId || !accessKey) throw new Error('JSONBIN env vars niet ingesteld');
 
-        // Haal alle keys op
-        const { blobs } = await store.list();
+        const res = await fetch(`https://api.jsonbin.io/v3/b/${binId}/latest`, {
+            headers: { 'X-Access-Key': accessKey }
+        });
+        const data = await res.json();
+        const orders = Array.isArray(data.record)
+            ? data.record.filter(o => o && !o.init)
+            : [];
 
-        // Haal alle orders op
-        const orders = await Promise.all(
-            blobs.map(async ({ key }) => {
-                try {
-                    return await store.get(key, { type: 'json' });
-                } catch {
-                    return null;
-                }
-            })
-        );
-
-        // Filter nulls, sorteer op timestamp (nieuwste eerst)
-        const sorted = orders
-            .filter(Boolean)
-            .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
-
-        return { statusCode: 200, headers, body: JSON.stringify(sorted) };
-
+        return { statusCode: 200, headers, body: JSON.stringify(orders) };
     } catch (err) {
         console.error('orders-list fout:', err.message);
-        return {
-            statusCode: 500,
-            headers,
-            body: JSON.stringify({ error: err.message })
-        };
+        return { statusCode: 500, headers, body: JSON.stringify({ error: err.message }) };
     }
 };

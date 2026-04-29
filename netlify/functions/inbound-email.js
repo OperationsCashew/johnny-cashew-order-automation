@@ -200,7 +200,7 @@ exports.handler = async (event) => {
 
         // Haal huidige orders op
         const getRes = await fetch(`https://api.jsonbin.io/v3/b/${binId}/latest`, {
-            headers: { 'X-Access-Key': accessKey }
+            headers: { 'X-Master-Key': accessKey }
         });
         const getData = await getRes.json();
         const current = Array.isArray(getData.record) ? getData.record.filter(o => o && !o.init) : [];
@@ -211,7 +211,7 @@ exports.handler = async (event) => {
         // Sla op
         await fetch(`https://api.jsonbin.io/v3/b/${binId}`, {
             method: 'PUT',
-            headers: { 'X-Access-Key': accessKey, 'Content-Type': 'application/json' },
+            headers: { 'X-Master-Key': accessKey, 'Content-Type': 'application/json' },
             body: JSON.stringify(current)
         });
         console.log(`💾 Order opgeslagen in JSONBin: ${orderId}`);

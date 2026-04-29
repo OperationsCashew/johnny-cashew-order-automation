@@ -14,7 +14,7 @@ exports.handler = async () => {
         if (!binId || !accessKey) throw new Error('JSONBIN env vars niet ingesteld');
 
         const res = await fetch(`https://api.jsonbin.io/v3/b/${binId}/latest`, {
-            headers: { 'X-Access-Key': accessKey }
+            headers: { 'X-Master-Key': accessKey }
         });
         const data = await res.json();
         console.log('JSONBin status:', res.status);

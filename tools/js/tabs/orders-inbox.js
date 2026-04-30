@@ -625,12 +625,6 @@ async function exactAPI(method, endpoint, payload) {
 }
 
 async function createSalesOrder(accountId, lines) {
-    // Haal het standaard magazijn op (DV = De Vries)
-    const whRes = await exactAPI('GET', `inventory/Warehouses?$select=ID,Code`);
-    const warehouses = whRes?.d?.results || [];
-    const warehouseId = warehouses.find(w => w.Code === 'DV')?.ID || null;
-    if (!warehouseId) throw new Error(`Magazijn "DV" niet gevonden. Beschikbaar: ${JSON.stringify(warehouses.map(w => w.Code))}`);
-
     const orderLines = [];
     for (const line of lines) {
         if (!line.code) continue;
@@ -642,7 +636,6 @@ async function createSalesOrder(accountId, lines) {
     }
     const d = await exactAPI('POST', 'salesorder/SalesOrders', {
         OrderedBy: accountId, DeliverTo: accountId,
-        Warehouse: warehouseId,
         SalesOrderLines: orderLines,
     });
     return d?.d?.OrderID;

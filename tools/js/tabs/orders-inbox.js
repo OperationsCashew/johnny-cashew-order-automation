@@ -626,9 +626,8 @@ async function exactAPI(method, endpoint, payload) {
 
 async function createSalesOrder(accountId, lines) {
     // Haal het standaard magazijn op (DV = De Vries)
-    const whFilter = encodeURIComponent(`Code eq 'DV'`);
-    const whRes = await exactAPI('GET', `inventory/Warehouses?$filter=${whFilter}&$select=ID,Code`);
-    const warehouseId = whRes?.d?.results?.[0]?.ID || null;
+    const whRes = await exactAPI('GET', `inventory/Warehouses?$select=ID,Code`);
+    const warehouseId = whRes?.d?.results?.find(w => w.Code === 'DV')?.ID || null;
     if (!warehouseId) throw new Error('Magazijn "DV" niet gevonden in Exact Online');
 
     const orderLines = [];

@@ -54,7 +54,7 @@ Geef ALLEEN een geldig JSON-object terug met deze structuur (geen uitleg, geen m
   },
   "lines": [
     {
-      "code": "artikelcode (7 cijfers)",
+      "code": "artikelcode (exact zoals in de email, geen nullen toevoegen)",
       "description": "artikelomschrijving",
       "quantity": 1
     }

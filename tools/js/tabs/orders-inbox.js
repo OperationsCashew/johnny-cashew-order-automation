@@ -518,7 +518,7 @@ async function oiBookInExact() {
 
         // Step 2 – Create order
         oiSetStep('order', 'running', 'Order aanmaken...');
-        const orderId = await createSalesOrder(selectedOrder.exactAccountId, lines);
+        const orderId = await createSalesOrder(selectedOrder.exactAccountId, lines, selectedOrder.parsed);
         oiSetStep('order', 'success', `Order aangemaakt`);
 
         // Step 3 – Shipping
@@ -624,7 +624,7 @@ async function exactAPI(method, endpoint, payload) {
     return data;
 }
 
-async function createSalesOrder(accountId, lines) {
+async function createSalesOrder(accountId, lines, parsed) {
     const orderLines = [];
     for (const line of lines) {
         if (!line.code) continue;
@@ -634,10 +634,14 @@ async function createSalesOrder(accountId, lines) {
         if (!item) throw new Error(`Artikel ${line.code} niet gevonden`);
         orderLines.push({ Item: item.ID, Quantity: line.quantity });
     }
-    const d = await exactAPI('POST', 'salesorder/SalesOrders', {
-        OrderedBy: accountId, DeliverTo: accountId,
+    const payload = {
+        OrderedBy: accountId,
+        DeliverTo: accountId,
         SalesOrderLines: orderLines,
-    });
+    };
+    if (parsed?.deliveryDate) payload.DeliveryDate = parsed.deliveryDate;
+    if (parsed?.orderReference) payload.YourRef = parsed.orderReference;
+    const d = await exactAPI('POST', 'salesorder/SalesOrders', payload);
     return d?.d?.OrderID;
 }
 

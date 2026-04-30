@@ -625,10 +625,10 @@ async function exactAPI(method, endpoint, payload) {
 }
 
 async function createSalesOrder(accountId, lines) {
-    // Haal het standaard magazijn op (DV = De Vries)
-    const whRes = await exactAPI('GET', `inventory/Warehouses?$select=ID,Code`);
-    const warehouseId = whRes?.d?.results?.find(w => w.Code === 'DV')?.ID || null;
-    if (!warehouseId) throw new Error('Magazijn "DV" niet gevonden in Exact Online');
+    // Haal warehouse GUID op uit een bestaande orderregel (DV = De Vries)
+    const whRes = await exactAPI('GET', `salesorder/SalesOrderLines?$select=Warehouse&$top=1`);
+    const warehouseId = whRes?.d?.results?.[0]?.Warehouse || null;
+    if (!warehouseId) throw new Error('Geen bestaande orderregels gevonden om magazijn GUID uit op te halen');
 
     const orderLines = [];
     for (const line of lines) {

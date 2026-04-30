@@ -12,13 +12,31 @@ import {
 import { initSalesTab, renderSalesTab } from './sales.js';
 import { initSalesOrdersTab, renderSalesOrdersTab } from './sales-orders.js';
 import { initForecastTab, renderForecastTab } from './forecast-accuracy.js';
-import { renderNieuweTab } from './nieuwe-tab.js';
 import { renderOrdersInboxTab } from './orders-inbox.js';
+
+// === OAUTH CALLBACK — verwerk Exact Online redirect op page load ===
+(async function handleOAuthOnLoad() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const code = urlParams.get('code');
+    if (!code) return;
+    history.replaceState({}, '', window.location.pathname);
+    try {
+        const res = await fetch('/.netlify/functions/exact-proxy', {
+            method: 'POST', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ action: 'exchange_token', code }),
+        });
+        const d = await res.json();
+        if (d.access_token) {
+            sessionStorage.setItem('exact_access_token', d.access_token);
+            sessionStorage.setItem('exact_refresh_token', d.refresh_token);
+        }
+    } catch (e) { console.error('OAuth callback fout:', e); }
+})();
 
 // === CATEGORY / TAB SWITCHING ===
 export const CATEGORY_TABS = {
     sales: ['sales', 'salesorders', 'forecast'],
-    supply: ['cogs', 'leverancier', 'stockcheck', 'nieuwetab', 'ordersinbox'],
+    supply: ['cogs', 'leverancier', 'stockcheck', 'ordersinbox'],
     finance: ['pnl', 'balance', 'cashflow', 'cfforecast'],
 };
 export function switchCategory(cat) {
@@ -50,7 +68,6 @@ export function switchTab(tabName) {
     if (tabName === 'sales') { initSalesTab(); renderSalesTab(); }
     if (tabName === 'salesorders') { initSalesOrdersTab(); renderSalesOrdersTab(); }
     if (tabName === 'forecast') { initForecastTab(); renderForecastTab(); }
-    if (tabName === 'nieuwetab') renderNieuweTab();
     if (tabName === 'ordersinbox') renderOrdersInboxTab();
 }
 

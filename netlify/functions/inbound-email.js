@@ -108,7 +108,6 @@ exports.handler = async (event) => {
     const timestamp = new Date().toISOString();
 
     console.log(`📧 Mail ontvangen van ${emailFrom} | Subject: "${emailSubject}" | Order ID: ${orderId}`);
-    console.log(`📄 Email body (eerste 300 tekens): ${emailBody.substring(0, 300)}`);
 
     // ── 3. Dedupe check op Message-ID ─────────────────────────────────────────
     // (Netlify Blobs / file storage is niet beschikbaar in Functions,
@@ -149,7 +148,6 @@ exports.handler = async (event) => {
             });
 
             const claudeData = await claudeRes.json();
-            console.log(`🤖 Claude raw response: ${JSON.stringify(claudeData).substring(0, 500)}`);
             const rawText = claudeData.content?.[0]?.text || '{}';
 
             // Strip markdown code blocks if present

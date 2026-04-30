@@ -5,6 +5,7 @@
 // Klant-matching via Exact Online API, daarna 1-klik boeken.
 
 const PROXY_URL = '/.netlify/functions/exact-proxy';
+const EXACT_CLIENT_ID = '8e38bdaf-052a-4d2d-bd0a-10b8d9f47e90';
 const DHL_THRESHOLD = 15;
 
 // ── State ─────────────────────────────────────────────────────────────────────
@@ -607,21 +608,54 @@ function updateConnStatus() {
 }
 
 function oiConnectExact() {
-    // Reuse token from order verwerking tab if set
     accessToken = sessionStorage.getItem('exact_access_token');
     refreshTokenVal = sessionStorage.getItem('exact_refresh_token');
-    if (accessToken) { updateConnStatus(); return; }
-    alert('Verbind eerst via de "📦 Order Verwerking" tab met Exact Online. De verbinding wordt automatisch gedeeld.');
+    if (accessToken) {
+        // Klik opnieuw = uitloggen
+        sessionStorage.removeItem('exact_access_token');
+        sessionStorage.removeItem('exact_refresh_token');
+        accessToken = null; refreshTokenVal = null;
+        updateConnStatus(); return;
+    }
+    const redirectUri = window.location.origin + window.location.pathname;
+    window.location.href =
+        `https://start.exactonline.nl/api/oauth2/auth` +
+        `?client_id=${encodeURIComponent(EXACT_CLIENT_ID)}` +
+        `&redirect_uri=${encodeURIComponent(redirectUri)}` +
+        `&response_type=code&force_login=0`;
 }
 
 async function exactAPI(method, endpoint, payload) {
-    const r = await fetch(PROXY_URL, {
+    let r = await fetch(PROXY_URL, {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ action: 'api', method, endpoint, payload, access_token: accessToken }),
     });
+    // Token verlopen → automatisch vernieuwen en opnieuw proberen
+    if (r.status === 401 && refreshTokenVal) {
+        await doRefresh();
+        r = await fetch(PROXY_URL, {
+            method: 'POST', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ action: 'api', method, endpoint, payload, access_token: accessToken }),
+        });
+    }
     const data = await r.json();
     if (!r.ok) throw new Error(`Exact API (${r.status}): ${JSON.stringify(data)}`);
     return data;
+}
+
+async function doRefresh() {
+    const r = await fetch(PROXY_URL, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'refresh_token', refresh_token: refreshTokenVal }),
+    });
+    const d = await r.json();
+    if (d.access_token) {
+        accessToken = d.access_token;
+        refreshTokenVal = d.refresh_token;
+        sessionStorage.setItem('exact_access_token', accessToken);
+        sessionStorage.setItem('exact_refresh_token', refreshTokenVal);
+        updateConnStatus();
+    }
 }
 
 async function createSalesOrder(accountId, lines, parsed) {

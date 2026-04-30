@@ -637,10 +637,11 @@ async function createSalesOrder(accountId, lines) {
         const d = await exactAPI('GET', `logistics/Items?$filter=${enc}&$select=ID,Code`);
         const item = d?.d?.results?.[0];
         if (!item) throw new Error(`Artikel ${line.code} niet gevonden`);
-        orderLines.push({ Item: item.ID, Quantity: line.quantity, Warehouse: warehouseId });
+        orderLines.push({ Item: item.ID, Quantity: line.quantity });
     }
     const d = await exactAPI('POST', 'salesorder/SalesOrders', {
         OrderedBy: accountId, DeliverTo: accountId,
+        Warehouse: warehouseId,
         SalesOrderLines: orderLines,
     });
     return d?.d?.OrderID;

@@ -648,13 +648,24 @@ async function createSalesOrder(accountId, lines) {
 
 async function setShippingMethod(orderId, useDHL) {
     if (!useDHL) return;
-    const d = await exactAPI('GET', `logistics/DeliveryMethods?$filter=substringof('DHL',Description)&$select=ID`);
-    const dhl = d?.d?.results?.[0];
-    if (dhl) await exactAPI('PUT', `salesorder/SalesOrders(guid'${orderId}')`, { DeliveryMethod: dhl.ID });
+    try {
+        const enc = encodeURIComponent(`substringof('DHL',Description)`);
+        const d = await exactAPI('GET', `logistics/DeliveryMethods?$filter=${enc}&$select=ID`);
+        const dhl = d?.d?.results?.[0];
+        if (dhl) await exactAPI('PUT', `salesorder/SalesOrders(guid'${orderId}')`, { DeliveryMethod: dhl.ID });
+    } catch {
+        // Niet-kritiek: order is aangemaakt, leveringswijze handmatig instellen in Exact
+        console.warn('DHL leveringswijze kon niet worden ingesteld — sla over');
+    }
 }
 
 async function confirmOrder(orderId) {
-    await exactAPI('PUT', `salesorder/SalesOrders(guid'${orderId}')`, { Status: 20 });
+    try {
+        await exactAPI('PUT', `salesorder/SalesOrders(guid'${orderId}')`, { Status: 20 });
+    } catch {
+        // Niet-kritiek: order staat al in Exact, status handmatig vrijgeven indien nodig
+        console.warn('Status 20 kon niet worden ingesteld — sla over');
+    }
 }
 
 // ── Utilities ─────────────────────────────────────────────────────────────────

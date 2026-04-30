@@ -636,7 +636,7 @@ async function createSalesOrder(accountId, lines) {
     }
     const d = await exactAPI('POST', 'salesorder/SalesOrders', {
         OrderedBy: accountId, DeliverTo: accountId,
-        SalesOrderLines: { results: orderLines },
+        SalesOrderLines: orderLines,
     });
     return d?.d?.OrderID;
 }
